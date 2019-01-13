@@ -1,0 +1,4094 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         22/Apr/2017  09:08:42 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\Source\SPI_TFT.c                            #
+#    Command line       =  -f E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGB #
+#                          EE\ZIGBEE\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoor #
+#                          d.cfg (-DCPU32MHZ -DROOT=__near_func               #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig. #
+#                          cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\Source\SPI_TFT.c -D ZIGBEEPRO -D ZTOOL_P1   #
+#                          -D xMT_TASK -D xMT_SYS_FUNC -D REFECTOR -D         #
+#                          xMT_ZDO_FUNC -D NV_INT -D NV_RESTORE -lC           #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\CoordinatorEB-Pro\List\ -lA        #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\CoordinatorEB-Pro\List\            #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\CoordinatorEB-Pro\Obj\ -e --debug  #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\ -I        #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\SOURCE\ -I                      #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL #
+#                          UDE\ -I E:\淘宝店\PT100\下位机工程\Projects\zstack #
+#                          \ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\ #
+#                          HAL\TARGET\CC2530EB\ -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\ -I                 #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INC #
+#                          LUDE\ -I E:\淘宝店\PT100\下位机工程\Projects\zstac #
+#                          k\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I E:\淘宝店\PT100\下位机工程\Projects\ #
+#                          zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\ -I E:\淘宝店\PT100\下位机工程\Pro #
+#                          jects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\STACK\SEC\ -I                          #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SA #
+#                          PI\ -I E:\淘宝店\PT100\下位机工程\Projects\zstack\ #
+#                          ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\S #
+#                          TACK\SYS\ -I E:\淘宝店\PT100\下位机工程\Projects\z #
+#                          stack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPON #
+#                          ENTS\STACK\ZDO\ -I E:\淘宝店\PT100\下位机工程\Proj #
+#                          ects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\ZMAC\F8W\ -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\ZMAC\ -I                           #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES #
+#                          \SADDR\ -I E:\淘宝店\PT100\下位机工程\Projects\zst #
+#                          ack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONEN #
+#                          TS\SERVICES\SDATA\ -I E:\淘宝店\PT100\下位机工程\P #
+#                          rojects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\ #
+#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH #
+#                          _LEVEL\ -I E:\淘宝店\PT100\下位机工程\Projects\zst #
+#                          ack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONEN #
+#                          TS\MAC\LOW_LEVEL\srf04\ -I                         #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ #
+#                          LEVEL\srf04\SINGLE_CHIP\ -Ohz --require_prototypes #
+#    List file          =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\CoordinatorEB-Pro\List\SPI_TFT.lst #
+#    Object file        =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\CoordinatorEB-Pro\Obj\SPI_TFT.r51  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ZIGBEE\Source\SPI_TFT.c
+      1          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf1
+   \   unsigned char volatile __sfr PERCFG
+   \                     PERCFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf8
+   \   union <unnamed> volatile __sfr _A_U1CSR
+   \                     _A_U1CSR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfa
+   \   unsigned char volatile __sfr U1BAUD
+   \                     U1BAUD:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfc
+   \   unsigned char volatile __sfr U1GCR
+   \                     U1GCR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          #include "SPI_TFT.H"
+      3          #include "Font.H"
+
+   \                                 In  segment CODE_C, align 1
+   \   unsigned char const __code ASCII7x14[92][14]
+   \                     ASCII7x14:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+   \   000004   00           DB 0
+   \   000005   00           DB 0
+   \   000006   00           DB 0
+   \   000007   00           DB 0
+   \   000008   00           DB 0
+   \   000009   00           DB 0
+   \   00000A   00           DB 0
+   \   00000B   00           DB 0
+   \   00000C   00           DB 0
+   \   00000D   00           DB 0
+   \   00000E   00           DB 0
+   \   00000F   00           DB 0
+   \   000010   10           DB 16
+   \   000011   10           DB 16
+   \   000012   10           DB 16
+   \   000013   10           DB 16
+   \   000014   10           DB 16
+   \   000015   10           DB 16
+   \   000016   00           DB 0
+   \   000017   00           DB 0
+   \   000018   30           DB 48
+   \   000019   30           DB 48
+   \   00001A   00           DB 0
+   \   00001B   00           DB 0
+   \   00001C   00           DB 0
+   \   00001D   14           DB 20
+   \   00001E   28           DB 40
+   \   00001F   50           DB 80
+   \   000020   00           DB 0
+   \   000021   00           DB 0
+   \   000022   00           DB 0
+   \   000023   00           DB 0
+   \   000024   00           DB 0
+   \   000025   00           DB 0
+   \   000026   00           DB 0
+   \   000027   00           DB 0
+   \   000028   00           DB 0
+   \   000029   00           DB 0
+   \   00002A   00           DB 0
+   \   00002B   00           DB 0
+   \   00002C   00           DB 0
+   \   00002D   28           DB 40
+   \   00002E   28           DB 40
+   \   00002F   FC           DB 252
+   \   000030   28           DB 40
+   \   000031   48           DB 72
+   \   000032   50           DB 80
+   \   000033   FC           DB 252
+   \   000034   50           DB 80
+   \   000035   50           DB 80
+   \   000036   00           DB 0
+   \   000037   00           DB 0
+   \   000038   00           DB 0
+   \   000039   00           DB 0
+   \   00003A   10           DB 16
+   \   00003B   38           DB 56
+   \   00003C   54           DB 84
+   \   00003D   54           DB 84
+   \   00003E   30           DB 48
+   \   00003F   18           DB 24
+   \   000040   14           DB 20
+   \   000041   54           DB 84
+   \   000042   54           DB 84
+   \   000043   38           DB 56
+   \   000044   10           DB 16
+   \   000045   00           DB 0
+   \   000046   00           DB 0
+   \   000047   00           DB 0
+   \   000048   00           DB 0
+   \   000049   44           DB 68
+   \   00004A   A8           DB 168
+   \   00004B   A8           DB 168
+   \   00004C   B0           DB 176
+   \   00004D   54           DB 84
+   \   00004E   1A           DB 26
+   \   00004F   2A           DB 42
+   \   000050   2A           DB 42
+   \   000051   44           DB 68
+   \   000052   00           DB 0
+   \   000053   00           DB 0
+   \   000054   00           DB 0
+   \   000055   00           DB 0
+   \   000056   00           DB 0
+   \   000057   20           DB 32
+   \   000058   50           DB 80
+   \   000059   50           DB 80
+   \   00005A   60           DB 96
+   \   00005B   AC           DB 172
+   \   00005C   A8           DB 168
+   \   00005D   98           DB 152
+   \   00005E   92           DB 146
+   \   00005F   7C           DB 124
+   \   000060   00           DB 0
+   \   000061   00           DB 0
+   \   000062   00           DB 0
+   \   000063   60           DB 96
+   \   000064   60           DB 96
+   \   000065   20           DB 32
+   \   000066   C0           DB 192
+   \   000067   00           DB 0
+   \   000068   00           DB 0
+   \   000069   00           DB 0
+   \   00006A   00           DB 0
+   \   00006B   00           DB 0
+   \   00006C   00           DB 0
+   \   00006D   00           DB 0
+   \   00006E   00           DB 0
+   \   00006F   00           DB 0
+   \   000070   00           DB 0
+   \   000071   04           DB 4
+   \   000072   08           DB 8
+   \   000073   08           DB 8
+   \   000074   10           DB 16
+   \   000075   10           DB 16
+   \   000076   10           DB 16
+   \   000077   10           DB 16
+   \   000078   10           DB 16
+   \   000079   10           DB 16
+   \   00007A   08           DB 8
+   \   00007B   08           DB 8
+   \   00007C   04           DB 4
+   \   00007D   00           DB 0
+   \   00007E   00           DB 0
+   \   00007F   00           DB 0
+   \   000080   40           DB 64
+   \   000081   20           DB 32
+   \   000082   10           DB 16
+   \   000083   08           DB 8
+   \   000084   04           DB 4
+   \   000085   08           DB 8
+   \   000086   10           DB 16
+   \   000087   20           DB 32
+   \   000088   40           DB 64
+   \   000089   00           DB 0
+   \   00008A   00           DB 0
+   \   00008B   00           DB 0
+   \   00008C   00           DB 0
+   \   00008D   00           DB 0
+   \   00008E   00           DB 0
+   \   00008F   10           DB 16
+   \   000090   10           DB 16
+   \   000091   D6           DB 214
+   \   000092   38           DB 56
+   \   000093   38           DB 56
+   \   000094   D6           DB 214
+   \   000095   10           DB 16
+   \   000096   10           DB 16
+   \   000097   00           DB 0
+   \   000098   00           DB 0
+   \   000099   00           DB 0
+   \   00009A   00           DB 0
+   \   00009B   00           DB 0
+   \   00009C   00           DB 0
+   \   00009D   10           DB 16
+   \   00009E   10           DB 16
+   \   00009F   10           DB 16
+   \   0000A0   FE           DB 254
+   \   0000A1   10           DB 16
+   \   0000A2   10           DB 16
+   \   0000A3   10           DB 16
+   \   0000A4   00           DB 0
+   \   0000A5   00           DB 0
+   \   0000A6   00           DB 0
+   \   0000A7   00           DB 0
+   \   0000A8   00           DB 0
+   \   0000A9   00           DB 0
+   \   0000AA   00           DB 0
+   \   0000AB   00           DB 0
+   \   0000AC   00           DB 0
+   \   0000AD   00           DB 0
+   \   0000AE   00           DB 0
+   \   0000AF   00           DB 0
+   \   0000B0   00           DB 0
+   \   0000B1   00           DB 0
+   \   0000B2   60           DB 96
+   \   0000B3   60           DB 96
+   \   0000B4   20           DB 32
+   \   0000B5   C0           DB 192
+   \   0000B6   00           DB 0
+   \   0000B7   00           DB 0
+   \   0000B8   00           DB 0
+   \   0000B9   00           DB 0
+   \   0000BA   00           DB 0
+   \   0000BB   00           DB 0
+   \   0000BC   FC           DB 252
+   \   0000BD   00           DB 0
+   \   0000BE   00           DB 0
+   \   0000BF   00           DB 0
+   \   0000C0   00           DB 0
+   \   0000C1   00           DB 0
+   \   0000C2   00           DB 0
+   \   0000C3   00           DB 0
+   \   0000C4   00           DB 0
+   \   0000C5   00           DB 0
+   \   0000C6   00           DB 0
+   \   0000C7   00           DB 0
+   \   0000C8   00           DB 0
+   \   0000C9   00           DB 0
+   \   0000CA   00           DB 0
+   \   0000CB   00           DB 0
+   \   0000CC   00           DB 0
+   \   0000CD   00           DB 0
+   \   0000CE   60           DB 96
+   \   0000CF   60           DB 96
+   \   0000D0   00           DB 0
+   \   0000D1   00           DB 0
+   \   0000D2   00           DB 0
+   \   0000D3   02           DB 2
+   \   0000D4   04           DB 4
+   \   0000D5   04           DB 4
+   \   0000D6   04           DB 4
+   \   0000D7   08           DB 8
+   \   0000D8   08           DB 8
+   \   0000D9   10           DB 16
+   \   0000DA   10           DB 16
+   \   0000DB   20           DB 32
+   \   0000DC   20           DB 32
+   \   0000DD   20           DB 32
+   \   0000DE   40           DB 64
+   \   0000DF   00           DB 0
+   \   0000E0   00           DB 0
+   \   0000E1   00           DB 0
+   \   0000E2   00           DB 0
+   \   0000E3   30           DB 48
+   \   0000E4   48           DB 72
+   \   0000E5   84           DB 132
+   \   0000E6   84           DB 132
+   \   0000E7   84           DB 132
+   \   0000E8   84           DB 132
+   \   0000E9   84           DB 132
+   \   0000EA   48           DB 72
+   \   0000EB   30           DB 48
+   \   0000EC   00           DB 0
+   \   0000ED   00           DB 0
+   \   0000EE   00           DB 0
+   \   0000EF   00           DB 0
+   \   0000F0   00           DB 0
+   \   0000F1   10           DB 16
+   \   0000F2   70           DB 112
+   \   0000F3   10           DB 16
+   \   0000F4   10           DB 16
+   \   0000F5   10           DB 16
+   \   0000F6   10           DB 16
+   \   0000F7   10           DB 16
+   \   0000F8   10           DB 16
+   \   0000F9   7C           DB 124
+   \   0000FA   00           DB 0
+   \   0000FB   00           DB 0
+   \   0000FC   00           DB 0
+   \   0000FD   00           DB 0
+   \   0000FE   00           DB 0
+   \   0000FF   38           DB 56
+   \   000100   44           DB 68
+   \   000101   44           DB 68
+   \   000102   04           DB 4
+   \   000103   08           DB 8
+   \   000104   10           DB 16
+   \   000105   20           DB 32
+   \   000106   44           DB 68
+   \   000107   7C           DB 124
+   \   000108   00           DB 0
+   \   000109   00           DB 0
+   \   00010A   00           DB 0
+   \   00010B   00           DB 0
+   \   00010C   00           DB 0
+   \   00010D   38           DB 56
+   \   00010E   44           DB 68
+   \   00010F   44           DB 68
+   \   000110   18           DB 24
+   \   000111   04           DB 4
+   \   000112   04           DB 4
+   \   000113   44           DB 68
+   \   000114   44           DB 68
+   \   000115   38           DB 56
+   \   000116   00           DB 0
+   \   000117   00           DB 0
+   \   000118   00           DB 0
+   \   000119   00           DB 0
+   \   00011A   08           DB 8
+   \   00011B   08           DB 8
+   \   00011C   18           DB 24
+   \   00011D   28           DB 40
+   \   00011E   48           DB 72
+   \   00011F   48           DB 72
+   \   000120   88           DB 136
+   \   000121   7C           DB 124
+   \   000122   08           DB 8
+   \   000123   1C           DB 28
+   \   000124   00           DB 0
+   \   000125   00           DB 0
+   \   000126   00           DB 0
+   \   000127   00           DB 0
+   \   000128   00           DB 0
+   \   000129   7C           DB 124
+   \   00012A   40           DB 64
+   \   00012B   40           DB 64
+   \   00012C   78           DB 120
+   \   00012D   44           DB 68
+   \   00012E   04           DB 4
+   \   00012F   44           DB 68
+   \   000130   44           DB 68
+   \   000131   38           DB 56
+   \   000132   00           DB 0
+   \   000133   00           DB 0
+   \   000134   00           DB 0
+   \   000135   00           DB 0
+   \   000136   00           DB 0
+   \   000137   3C           DB 60
+   \   000138   44           DB 68
+   \   000139   80           DB 128
+   \   00013A   B8           DB 184
+   \   00013B   C4           DB 196
+   \   00013C   84           DB 132
+   \   00013D   84           DB 132
+   \   00013E   84           DB 132
+   \   00013F   78           DB 120
+   \   000140   00           DB 0
+   \   000141   00           DB 0
+   \   000142   00           DB 0
+   \   000143   00           DB 0
+   \   000144   00           DB 0
+   \   000145   7C           DB 124
+   \   000146   44           DB 68
+   \   000147   48           DB 72
+   \   000148   08           DB 8
+   \   000149   10           DB 16
+   \   00014A   10           DB 16
+   \   00014B   10           DB 16
+   \   00014C   10           DB 16
+   \   00014D   10           DB 16
+   \   00014E   00           DB 0
+   \   00014F   00           DB 0
+   \   000150   00           DB 0
+   \   000151   00           DB 0
+   \   000152   00           DB 0
+   \   000153   78           DB 120
+   \   000154   84           DB 132
+   \   000155   84           DB 132
+   \   000156   48           DB 72
+   \   000157   78           DB 120
+   \   000158   84           DB 132
+   \   000159   84           DB 132
+   \   00015A   84           DB 132
+   \   00015B   78           DB 120
+   \   00015C   00           DB 0
+   \   00015D   00           DB 0
+   \   00015E   00           DB 0
+   \   00015F   00           DB 0
+   \   000160   00           DB 0
+   \   000161   78           DB 120
+   \   000162   84           DB 132
+   \   000163   84           DB 132
+   \   000164   84           DB 132
+   \   000165   8C           DB 140
+   \   000166   74           DB 116
+   \   000167   04           DB 4
+   \   000168   88           DB 136
+   \   000169   F0           DB 240
+   \   00016A   00           DB 0
+   \   00016B   00           DB 0
+   \   00016C   00           DB 0
+   \   00016D   00           DB 0
+   \   00016E   00           DB 0
+   \   00016F   00           DB 0
+   \   000170   00           DB 0
+   \   000171   30           DB 48
+   \   000172   30           DB 48
+   \   000173   00           DB 0
+   \   000174   00           DB 0
+   \   000175   00           DB 0
+   \   000176   30           DB 48
+   \   000177   30           DB 48
+   \   000178   00           DB 0
+   \   000179   00           DB 0
+   \   00017A   00           DB 0
+   \   00017B   00           DB 0
+   \   00017C   00           DB 0
+   \   00017D   00           DB 0
+   \   00017E   00           DB 0
+   \   00017F   00           DB 0
+   \   000180   10           DB 16
+   \   000181   00           DB 0
+   \   000182   00           DB 0
+   \   000183   00           DB 0
+   \   000184   00           DB 0
+   \   000185   10           DB 16
+   \   000186   10           DB 16
+   \   000187   20           DB 32
+   \   000188   00           DB 0
+   \   000189   00           DB 0
+   \   00018A   04           DB 4
+   \   00018B   08           DB 8
+   \   00018C   10           DB 16
+   \   00018D   20           DB 32
+   \   00018E   40           DB 64
+   \   00018F   20           DB 32
+   \   000190   10           DB 16
+   \   000191   08           DB 8
+   \   000192   04           DB 4
+   \   000193   00           DB 0
+   \   000194   00           DB 0
+   \   000195   00           DB 0
+   \   000196   00           DB 0
+   \   000197   00           DB 0
+   \   000198   00           DB 0
+   \   000199   00           DB 0
+   \   00019A   00           DB 0
+   \   00019B   FC           DB 252
+   \   00019C   00           DB 0
+   \   00019D   00           DB 0
+   \   00019E   FC           DB 252
+   \   00019F   00           DB 0
+   \   0001A0   00           DB 0
+   \   0001A1   00           DB 0
+   \   0001A2   00           DB 0
+   \   0001A3   00           DB 0
+   \   0001A4   00           DB 0
+   \   0001A5   00           DB 0
+   \   0001A6   40           DB 64
+   \   0001A7   20           DB 32
+   \   0001A8   10           DB 16
+   \   0001A9   08           DB 8
+   \   0001AA   04           DB 4
+   \   0001AB   08           DB 8
+   \   0001AC   10           DB 16
+   \   0001AD   20           DB 32
+   \   0001AE   40           DB 64
+   \   0001AF   00           DB 0
+   \   0001B0   00           DB 0
+   \   0001B1   00           DB 0
+   \   0001B2   00           DB 0
+   \   0001B3   00           DB 0
+   \   0001B4   78           DB 120
+   \   0001B5   84           DB 132
+   \   0001B6   84           DB 132
+   \   0001B7   84           DB 132
+   \   0001B8   08           DB 8
+   \   0001B9   10           DB 16
+   \   0001BA   10           DB 16
+   \   0001BB   00           DB 0
+   \   0001BC   30           DB 48
+   \   0001BD   30           DB 48
+   \   0001BE   00           DB 0
+   \   0001BF   00           DB 0
+   \   0001C0   00           DB 0
+   \   0001C1   00           DB 0
+   \   0001C2   00           DB 0
+   \   0001C3   38           DB 56
+   \   0001C4   44           DB 68
+   \   0001C5   9A           DB 154
+   \   0001C6   AA           DB 170
+   \   0001C7   AA           DB 170
+   \   0001C8   AA           DB 170
+   \   0001C9   B4           DB 180
+   \   0001CA   42           DB 66
+   \   0001CB   3C           DB 60
+   \   0001CC   00           DB 0
+   \   0001CD   00           DB 0
+   \   0001CE   00           DB 0
+   \   0001CF   00           DB 0
+   \   0001D0   00           DB 0
+   \   0001D1   10           DB 16
+   \   0001D2   10           DB 16
+   \   0001D3   28           DB 40
+   \   0001D4   28           DB 40
+   \   0001D5   28           DB 40
+   \   0001D6   38           DB 56
+   \   0001D7   44           DB 68
+   \   0001D8   44           DB 68
+   \   0001D9   EE           DB 238
+   \   0001DA   00           DB 0
+   \   0001DB   00           DB 0
+   \   0001DC   00           DB 0
+   \   0001DD   00           DB 0
+   \   0001DE   00           DB 0
+   \   0001DF   F8           DB 248
+   \   0001E0   44           DB 68
+   \   0001E1   44           DB 68
+   \   0001E2   78           DB 120
+   \   0001E3   44           DB 68
+   \   0001E4   44           DB 68
+   \   0001E5   44           DB 68
+   \   0001E6   44           DB 68
+   \   0001E7   F8           DB 248
+   \   0001E8   00           DB 0
+   \   0001E9   00           DB 0
+   \   0001EA   00           DB 0
+   \   0001EB   00           DB 0
+   \   0001EC   00           DB 0
+   \   0001ED   3C           DB 60
+   \   0001EE   44           DB 68
+   \   0001EF   84           DB 132
+   \   0001F0   80           DB 128
+   \   0001F1   80           DB 128
+   \   0001F2   80           DB 128
+   \   0001F3   80           DB 128
+   \   0001F4   44           DB 68
+   \   0001F5   38           DB 56
+   \   0001F6   00           DB 0
+   \   0001F7   00           DB 0
+   \   0001F8   00           DB 0
+   \   0001F9   00           DB 0
+   \   0001FA   00           DB 0
+   \   0001FB   F0           DB 240
+   \   0001FC   48           DB 72
+   \   0001FD   44           DB 68
+   \   0001FE   44           DB 68
+   \   0001FF   44           DB 68
+   \   000200   44           DB 68
+   \   000201   44           DB 68
+   \   000202   48           DB 72
+   \   000203   F0           DB 240
+   \   000204   00           DB 0
+   \   000205   00           DB 0
+   \   000206   00           DB 0
+   \   000207   00           DB 0
+   \   000208   00           DB 0
+   \   000209   FC           DB 252
+   \   00020A   44           DB 68
+   \   00020B   40           DB 64
+   \   00020C   48           DB 72
+   \   00020D   78           DB 120
+   \   00020E   48           DB 72
+   \   00020F   40           DB 64
+   \   000210   44           DB 68
+   \   000211   FC           DB 252
+   \   000212   00           DB 0
+   \   000213   00           DB 0
+   \   000214   00           DB 0
+   \   000215   00           DB 0
+   \   000216   00           DB 0
+   \   000217   FC           DB 252
+   \   000218   42           DB 66
+   \   000219   40           DB 64
+   \   00021A   48           DB 72
+   \   00021B   78           DB 120
+   \   00021C   48           DB 72
+   \   00021D   40           DB 64
+   \   00021E   40           DB 64
+   \   00021F   E0           DB 224
+   \   000220   00           DB 0
+   \   000221   00           DB 0
+   \   000222   00           DB 0
+   \   000223   00           DB 0
+   \   000224   00           DB 0
+   \   000225   3C           DB 60
+   \   000226   44           DB 68
+   \   000227   84           DB 132
+   \   000228   80           DB 128
+   \   000229   80           DB 128
+   \   00022A   8E           DB 142
+   \   00022B   84           DB 132
+   \   00022C   44           DB 68
+   \   00022D   38           DB 56
+   \   00022E   00           DB 0
+   \   00022F   00           DB 0
+   \   000230   00           DB 0
+   \   000231   00           DB 0
+   \   000232   00           DB 0
+   \   000233   EE           DB 238
+   \   000234   44           DB 68
+   \   000235   44           DB 68
+   \   000236   44           DB 68
+   \   000237   7C           DB 124
+   \   000238   44           DB 68
+   \   000239   44           DB 68
+   \   00023A   44           DB 68
+   \   00023B   EE           DB 238
+   \   00023C   00           DB 0
+   \   00023D   00           DB 0
+   \   00023E   00           DB 0
+   \   00023F   00           DB 0
+   \   000240   00           DB 0
+   \   000241   7C           DB 124
+   \   000242   10           DB 16
+   \   000243   10           DB 16
+   \   000244   10           DB 16
+   \   000245   10           DB 16
+   \   000246   10           DB 16
+   \   000247   10           DB 16
+   \   000248   10           DB 16
+   \   000249   7C           DB 124
+   \   00024A   00           DB 0
+   \   00024B   00           DB 0
+   \   00024C   00           DB 0
+   \   00024D   00           DB 0
+   \   00024E   00           DB 0
+   \   00024F   7C           DB 124
+   \   000250   10           DB 16
+   \   000251   10           DB 16
+   \   000252   10           DB 16
+   \   000253   10           DB 16
+   \   000254   10           DB 16
+   \   000255   10           DB 16
+   \   000256   10           DB 16
+   \   000257   10           DB 16
+   \   000258   90           DB 144
+   \   000259   E0           DB 224
+   \   00025A   00           DB 0
+   \   00025B   00           DB 0
+   \   00025C   00           DB 0
+   \   00025D   EE           DB 238
+   \   00025E   44           DB 68
+   \   00025F   48           DB 72
+   \   000260   50           DB 80
+   \   000261   70           DB 112
+   \   000262   48           DB 72
+   \   000263   48           DB 72
+   \   000264   44           DB 68
+   \   000265   EE           DB 238
+   \   000266   00           DB 0
+   \   000267   00           DB 0
+   \   000268   00           DB 0
+   \   000269   00           DB 0
+   \   00026A   00           DB 0
+   \   00026B   E0           DB 224
+   \   00026C   40           DB 64
+   \   00026D   40           DB 64
+   \   00026E   40           DB 64
+   \   00026F   40           DB 64
+   \   000270   40           DB 64
+   \   000271   40           DB 64
+   \   000272   44           DB 68
+   \   000273   FC           DB 252
+   \   000274   00           DB 0
+   \   000275   00           DB 0
+   \   000276   00           DB 0
+   \   000277   00           DB 0
+   \   000278   00           DB 0
+   \   000279   EE           DB 238
+   \   00027A   6C           DB 108
+   \   00027B   6C           DB 108
+   \   00027C   6C           DB 108
+   \   00027D   54           DB 84
+   \   00027E   54           DB 84
+   \   00027F   54           DB 84
+   \   000280   54           DB 84
+   \   000281   D6           DB 214
+   \   000282   00           DB 0
+   \   000283   00           DB 0
+   \   000284   00           DB 0
+   \   000285   00           DB 0
+   \   000286   00           DB 0
+   \   000287   EE           DB 238
+   \   000288   64           DB 100
+   \   000289   64           DB 100
+   \   00028A   54           DB 84
+   \   00028B   54           DB 84
+   \   00028C   54           DB 84
+   \   00028D   4C           DB 76
+   \   00028E   4C           DB 76
+   \   00028F   E4           DB 228
+   \   000290   00           DB 0
+   \   000291   00           DB 0
+   \   000292   00           DB 0
+   \   000293   00           DB 0
+   \   000294   00           DB 0
+   \   000295   30           DB 48
+   \   000296   48           DB 72
+   \   000297   84           DB 132
+   \   000298   84           DB 132
+   \   000299   84           DB 132
+   \   00029A   84           DB 132
+   \   00029B   84           DB 132
+   \   00029C   48           DB 72
+   \   00029D   30           DB 48
+   \   00029E   00           DB 0
+   \   00029F   00           DB 0
+   \   0002A0   00           DB 0
+   \   0002A1   00           DB 0
+   \   0002A2   00           DB 0
+   \   0002A3   F8           DB 248
+   \   0002A4   44           DB 68
+   \   0002A5   44           DB 68
+   \   0002A6   44           DB 68
+   \   0002A7   78           DB 120
+   \   0002A8   40           DB 64
+   \   0002A9   40           DB 64
+   \   0002AA   40           DB 64
+   \   0002AB   E0           DB 224
+   \   0002AC   00           DB 0
+   \   0002AD   00           DB 0
+   \   0002AE   00           DB 0
+   \   0002AF   00           DB 0
+   \   0002B0   00           DB 0
+   \   0002B1   30           DB 48
+   \   0002B2   48           DB 72
+   \   0002B3   84           DB 132
+   \   0002B4   84           DB 132
+   \   0002B5   84           DB 132
+   \   0002B6   84           DB 132
+   \   0002B7   B4           DB 180
+   \   0002B8   48           DB 72
+   \   0002B9   38           DB 56
+   \   0002BA   0C           DB 12
+   \   0002BB   00           DB 0
+   \   0002BC   00           DB 0
+   \   0002BD   00           DB 0
+   \   0002BE   00           DB 0
+   \   0002BF   F8           DB 248
+   \   0002C0   44           DB 68
+   \   0002C1   44           DB 68
+   \   0002C2   78           DB 120
+   \   0002C3   50           DB 80
+   \   0002C4   48           DB 72
+   \   0002C5   48           DB 72
+   \   0002C6   44           DB 68
+   \   0002C7   E6           DB 230
+   \   0002C8   00           DB 0
+   \   0002C9   00           DB 0
+   \   0002CA   00           DB 0
+   \   0002CB   00           DB 0
+   \   0002CC   00           DB 0
+   \   0002CD   3C           DB 60
+   \   0002CE   44           DB 68
+   \   0002CF   40           DB 64
+   \   0002D0   20           DB 32
+   \   0002D1   18           DB 24
+   \   0002D2   04           DB 4
+   \   0002D3   04           DB 4
+   \   0002D4   44           DB 68
+   \   0002D5   78           DB 120
+   \   0002D6   00           DB 0
+   \   0002D7   00           DB 0
+   \   0002D8   00           DB 0
+   \   0002D9   00           DB 0
+   \   0002DA   00           DB 0
+   \   0002DB   FE           DB 254
+   \   0002DC   92           DB 146
+   \   0002DD   10           DB 16
+   \   0002DE   10           DB 16
+   \   0002DF   10           DB 16
+   \   0002E0   10           DB 16
+   \   0002E1   10           DB 16
+   \   0002E2   10           DB 16
+   \   0002E3   38           DB 56
+   \   0002E4   00           DB 0
+   \   0002E5   00           DB 0
+   \   0002E6   00           DB 0
+   \   0002E7   00           DB 0
+   \   0002E8   00           DB 0
+   \   0002E9   EE           DB 238
+   \   0002EA   44           DB 68
+   \   0002EB   44           DB 68
+   \   0002EC   44           DB 68
+   \   0002ED   44           DB 68
+   \   0002EE   44           DB 68
+   \   0002EF   44           DB 68
+   \   0002F0   44           DB 68
+   \   0002F1   38           DB 56
+   \   0002F2   00           DB 0
+   \   0002F3   00           DB 0
+   \   0002F4   00           DB 0
+   \   0002F5   00           DB 0
+   \   0002F6   00           DB 0
+   \   0002F7   EE           DB 238
+   \   0002F8   44           DB 68
+   \   0002F9   44           DB 68
+   \   0002FA   28           DB 40
+   \   0002FB   28           DB 40
+   \   0002FC   28           DB 40
+   \   0002FD   28           DB 40
+   \   0002FE   10           DB 16
+   \   0002FF   10           DB 16
+   \   000300   00           DB 0
+   \   000301   00           DB 0
+   \   000302   00           DB 0
+   \   000303   00           DB 0
+   \   000304   00           DB 0
+   \   000305   D6           DB 214
+   \   000306   54           DB 84
+   \   000307   54           DB 84
+   \   000308   54           DB 84
+   \   000309   54           DB 84
+   \   00030A   6C           DB 108
+   \   00030B   28           DB 40
+   \   00030C   28           DB 40
+   \   00030D   28           DB 40
+   \   00030E   00           DB 0
+   \   00030F   00           DB 0
+   \   000310   00           DB 0
+   \   000311   00           DB 0
+   \   000312   00           DB 0
+   \   000313   EE           DB 238
+   \   000314   44           DB 68
+   \   000315   28           DB 40
+   \   000316   28           DB 40
+   \   000317   10           DB 16
+   \   000318   28           DB 40
+   \   000319   28           DB 40
+   \   00031A   44           DB 68
+   \   00031B   EE           DB 238
+   \   00031C   00           DB 0
+   \   00031D   00           DB 0
+   \   00031E   00           DB 0
+   \   00031F   00           DB 0
+   \   000320   00           DB 0
+   \   000321   EE           DB 238
+   \   000322   44           DB 68
+   \   000323   28           DB 40
+   \   000324   28           DB 40
+   \   000325   10           DB 16
+   \   000326   10           DB 16
+   \   000327   10           DB 16
+   \   000328   10           DB 16
+   \   000329   38           DB 56
+   \   00032A   00           DB 0
+   \   00032B   00           DB 0
+   \   00032C   00           DB 0
+   \   00032D   00           DB 0
+   \   00032E   00           DB 0
+   \   00032F   7C           DB 124
+   \   000330   88           DB 136
+   \   000331   08           DB 8
+   \   000332   10           DB 16
+   \   000333   20           DB 32
+   \   000334   20           DB 32
+   \   000335   40           DB 64
+   \   000336   44           DB 68
+   \   000337   FC           DB 252
+   \   000338   00           DB 0
+   \   000339   00           DB 0
+   \   00033A   00           DB 0
+   \   00033B   1C           DB 28
+   \   00033C   10           DB 16
+   \   00033D   10           DB 16
+   \   00033E   10           DB 16
+   \   00033F   10           DB 16
+   \   000340   10           DB 16
+   \   000341   10           DB 16
+   \   000342   10           DB 16
+   \   000343   10           DB 16
+   \   000344   10           DB 16
+   \   000345   10           DB 16
+   \   000346   1C           DB 28
+   \   000347   00           DB 0
+   \   000348   00           DB 0
+   \   000349   70           DB 112
+   \   00034A   10           DB 16
+   \   00034B   10           DB 16
+   \   00034C   10           DB 16
+   \   00034D   10           DB 16
+   \   00034E   10           DB 16
+   \   00034F   10           DB 16
+   \   000350   10           DB 16
+   \   000351   10           DB 16
+   \   000352   10           DB 16
+   \   000353   10           DB 16
+   \   000354   70           DB 112
+   \   000355   00           DB 0
+   \   000356   00           DB 0
+   \   000357   70           DB 112
+   \   000358   10           DB 16
+   \   000359   10           DB 16
+   \   00035A   10           DB 16
+   \   00035B   10           DB 16
+   \   00035C   10           DB 16
+   \   00035D   10           DB 16
+   \   00035E   10           DB 16
+   \   00035F   10           DB 16
+   \   000360   10           DB 16
+   \   000361   10           DB 16
+   \   000362   70           DB 112
+   \   000363   00           DB 0
+   \   000364   00           DB 0
+   \   000365   10           DB 16
+   \   000366   28           DB 40
+   \   000367   00           DB 0
+   \   000368   00           DB 0
+   \   000369   00           DB 0
+   \   00036A   00           DB 0
+   \   00036B   00           DB 0
+   \   00036C   00           DB 0
+   \   00036D   00           DB 0
+   \   00036E   00           DB 0
+   \   00036F   00           DB 0
+   \   000370   00           DB 0
+   \   000371   00           DB 0
+   \   000372   00           DB 0
+   \   000373   00           DB 0
+   \   000374   00           DB 0
+   \   000375   00           DB 0
+   \   000376   00           DB 0
+   \   000377   00           DB 0
+   \   000378   00           DB 0
+   \   000379   00           DB 0
+   \   00037A   00           DB 0
+   \   00037B   00           DB 0
+   \   00037C   00           DB 0
+   \   00037D   00           DB 0
+   \   00037E   00           DB 0
+   \   00037F   FE           DB 254
+   \   000380   00           DB 0
+   \   000381   60           DB 96
+   \   000382   60           DB 96
+   \   000383   20           DB 32
+   \   000384   C0           DB 192
+   \   000385   00           DB 0
+   \   000386   00           DB 0
+   \   000387   00           DB 0
+   \   000388   00           DB 0
+   \   000389   00           DB 0
+   \   00038A   00           DB 0
+   \   00038B   00           DB 0
+   \   00038C   00           DB 0
+   \   00038D   00           DB 0
+   \   00038E   00           DB 0
+   \   00038F   00           DB 0
+   \   000390   00           DB 0
+   \   000391   00           DB 0
+   \   000392   00           DB 0
+   \   000393   00           DB 0
+   \   000394   38           DB 56
+   \   000395   44           DB 68
+   \   000396   1C           DB 28
+   \   000397   24           DB 36
+   \   000398   44           DB 68
+   \   000399   3E           DB 62
+   \   00039A   00           DB 0
+   \   00039B   00           DB 0
+   \   00039C   00           DB 0
+   \   00039D   00           DB 0
+   \   00039E   00           DB 0
+   \   00039F   C0           DB 192
+   \   0003A0   40           DB 64
+   \   0003A1   40           DB 64
+   \   0003A2   78           DB 120
+   \   0003A3   44           DB 68
+   \   0003A4   44           DB 68
+   \   0003A5   44           DB 68
+   \   0003A6   44           DB 68
+   \   0003A7   78           DB 120
+   \   0003A8   00           DB 0
+   \   0003A9   00           DB 0
+   \   0003AA   00           DB 0
+   \   0003AB   00           DB 0
+   \   0003AC   00           DB 0
+   \   0003AD   00           DB 0
+   \   0003AE   00           DB 0
+   \   0003AF   00           DB 0
+   \   0003B0   3C           DB 60
+   \   0003B1   44           DB 68
+   \   0003B2   40           DB 64
+   \   0003B3   40           DB 64
+   \   0003B4   44           DB 68
+   \   0003B5   38           DB 56
+   \   0003B6   00           DB 0
+   \   0003B7   00           DB 0
+   \   0003B8   00           DB 0
+   \   0003B9   00           DB 0
+   \   0003BA   00           DB 0
+   \   0003BB   0C           DB 12
+   \   0003BC   04           DB 4
+   \   0003BD   04           DB 4
+   \   0003BE   3C           DB 60
+   \   0003BF   44           DB 68
+   \   0003C0   44           DB 68
+   \   0003C1   44           DB 68
+   \   0003C2   44           DB 68
+   \   0003C3   3E           DB 62
+   \   0003C4   00           DB 0
+   \   0003C5   00           DB 0
+   \   0003C6   00           DB 0
+   \   0003C7   00           DB 0
+   \   0003C8   00           DB 0
+   \   0003C9   00           DB 0
+   \   0003CA   00           DB 0
+   \   0003CB   00           DB 0
+   \   0003CC   38           DB 56
+   \   0003CD   44           DB 68
+   \   0003CE   7C           DB 124
+   \   0003CF   40           DB 64
+   \   0003D0   44           DB 68
+   \   0003D1   38           DB 56
+   \   0003D2   00           DB 0
+   \   0003D3   00           DB 0
+   \   0003D4   00           DB 0
+   \   0003D5   00           DB 0
+   \   0003D6   00           DB 0
+   \   0003D7   1C           DB 28
+   \   0003D8   24           DB 36
+   \   0003D9   20           DB 32
+   \   0003DA   F8           DB 248
+   \   0003DB   20           DB 32
+   \   0003DC   20           DB 32
+   \   0003DD   20           DB 32
+   \   0003DE   20           DB 32
+   \   0003DF   78           DB 120
+   \   0003E0   00           DB 0
+   \   0003E1   00           DB 0
+   \   0003E2   00           DB 0
+   \   0003E3   00           DB 0
+   \   0003E4   00           DB 0
+   \   0003E5   00           DB 0
+   \   0003E6   00           DB 0
+   \   0003E7   00           DB 0
+   \   0003E8   3C           DB 60
+   \   0003E9   48           DB 72
+   \   0003EA   48           DB 72
+   \   0003EB   30           DB 48
+   \   0003EC   40           DB 64
+   \   0003ED   78           DB 120
+   \   0003EE   44           DB 68
+   \   0003EF   38           DB 56
+   \   0003F0   00           DB 0
+   \   0003F1   00           DB 0
+   \   0003F2   00           DB 0
+   \   0003F3   C0           DB 192
+   \   0003F4   40           DB 64
+   \   0003F5   40           DB 64
+   \   0003F6   58           DB 88
+   \   0003F7   64           DB 100
+   \   0003F8   44           DB 68
+   \   0003F9   44           DB 68
+   \   0003FA   44           DB 68
+   \   0003FB   EE           DB 238
+   \   0003FC   00           DB 0
+   \   0003FD   00           DB 0
+   \   0003FE   00           DB 0
+   \   0003FF   00           DB 0
+   \   000400   00           DB 0
+   \   000401   10           DB 16
+   \   000402   00           DB 0
+   \   000403   00           DB 0
+   \   000404   70           DB 112
+   \   000405   10           DB 16
+   \   000406   10           DB 16
+   \   000407   10           DB 16
+   \   000408   10           DB 16
+   \   000409   7C           DB 124
+   \   00040A   00           DB 0
+   \   00040B   00           DB 0
+   \   00040C   00           DB 0
+   \   00040D   00           DB 0
+   \   00040E   00           DB 0
+   \   00040F   08           DB 8
+   \   000410   00           DB 0
+   \   000411   00           DB 0
+   \   000412   38           DB 56
+   \   000413   08           DB 8
+   \   000414   08           DB 8
+   \   000415   08           DB 8
+   \   000416   08           DB 8
+   \   000417   08           DB 8
+   \   000418   08           DB 8
+   \   000419   70           DB 112
+   \   00041A   00           DB 0
+   \   00041B   00           DB 0
+   \   00041C   00           DB 0
+   \   00041D   C0           DB 192
+   \   00041E   40           DB 64
+   \   00041F   40           DB 64
+   \   000420   5C           DB 92
+   \   000421   48           DB 72
+   \   000422   50           DB 80
+   \   000423   70           DB 112
+   \   000424   48           DB 72
+   \   000425   EC           DB 236
+   \   000426   00           DB 0
+   \   000427   00           DB 0
+   \   000428   00           DB 0
+   \   000429   00           DB 0
+   \   00042A   00           DB 0
+   \   00042B   70           DB 112
+   \   00042C   10           DB 16
+   \   00042D   10           DB 16
+   \   00042E   10           DB 16
+   \   00042F   10           DB 16
+   \   000430   10           DB 16
+   \   000431   10           DB 16
+   \   000432   10           DB 16
+   \   000433   7C           DB 124
+   \   000434   00           DB 0
+   \   000435   00           DB 0
+   \   000436   00           DB 0
+   \   000437   00           DB 0
+   \   000438   00           DB 0
+   \   000439   00           DB 0
+   \   00043A   00           DB 0
+   \   00043B   00           DB 0
+   \   00043C   F8           DB 248
+   \   00043D   54           DB 84
+   \   00043E   54           DB 84
+   \   00043F   54           DB 84
+   \   000440   54           DB 84
+   \   000441   D6           DB 214
+   \   000442   00           DB 0
+   \   000443   00           DB 0
+   \   000444   00           DB 0
+   \   000445   00           DB 0
+   \   000446   00           DB 0
+   \   000447   00           DB 0
+   \   000448   00           DB 0
+   \   000449   00           DB 0
+   \   00044A   D8           DB 216
+   \   00044B   64           DB 100
+   \   00044C   44           DB 68
+   \   00044D   44           DB 68
+   \   00044E   44           DB 68
+   \   00044F   EE           DB 238
+   \   000450   00           DB 0
+   \   000451   00           DB 0
+   \   000452   00           DB 0
+   \   000453   00           DB 0
+   \   000454   00           DB 0
+   \   000455   00           DB 0
+   \   000456   00           DB 0
+   \   000457   00           DB 0
+   \   000458   38           DB 56
+   \   000459   44           DB 68
+   \   00045A   44           DB 68
+   \   00045B   44           DB 68
+   \   00045C   44           DB 68
+   \   00045D   38           DB 56
+   \   00045E   00           DB 0
+   \   00045F   00           DB 0
+   \   000460   00           DB 0
+   \   000461   00           DB 0
+   \   000462   00           DB 0
+   \   000463   00           DB 0
+   \   000464   00           DB 0
+   \   000465   00           DB 0
+   \   000466   F8           DB 248
+   \   000467   44           DB 68
+   \   000468   44           DB 68
+   \   000469   44           DB 68
+   \   00046A   44           DB 68
+   \   00046B   78           DB 120
+   \   00046C   40           DB 64
+   \   00046D   E0           DB 224
+   \   00046E   00           DB 0
+   \   00046F   00           DB 0
+   \   000470   00           DB 0
+   \   000471   00           DB 0
+   \   000472   00           DB 0
+   \   000473   00           DB 0
+   \   000474   3C           DB 60
+   \   000475   44           DB 68
+   \   000476   44           DB 68
+   \   000477   44           DB 68
+   \   000478   44           DB 68
+   \   000479   3C           DB 60
+   \   00047A   04           DB 4
+   \   00047B   0E           DB 14
+   \   00047C   00           DB 0
+   \   00047D   00           DB 0
+   \   00047E   00           DB 0
+   \   00047F   00           DB 0
+   \   000480   00           DB 0
+   \   000481   00           DB 0
+   \   000482   EC           DB 236
+   \   000483   30           DB 48
+   \   000484   20           DB 32
+   \   000485   20           DB 32
+   \   000486   20           DB 32
+   \   000487   F8           DB 248
+   \   000488   00           DB 0
+   \   000489   00           DB 0
+   \   00048A   00           DB 0
+   \   00048B   00           DB 0
+   \   00048C   00           DB 0
+   \   00048D   00           DB 0
+   \   00048E   00           DB 0
+   \   00048F   00           DB 0
+   \   000490   3C           DB 60
+   \   000491   44           DB 68
+   \   000492   30           DB 48
+   \   000493   08           DB 8
+   \   000494   44           DB 68
+   \   000495   78           DB 120
+   \   000496   00           DB 0
+   \   000497   00           DB 0
+   \   000498   00           DB 0
+   \   000499   00           DB 0
+   \   00049A   00           DB 0
+   \   00049B   00           DB 0
+   \   00049C   10           DB 16
+   \   00049D   10           DB 16
+   \   00049E   7C           DB 124
+   \   00049F   10           DB 16
+   \   0004A0   10           DB 16
+   \   0004A1   10           DB 16
+   \   0004A2   10           DB 16
+   \   0004A3   0C           DB 12
+   \   0004A4   00           DB 0
+   \   0004A5   00           DB 0
+   \   0004A6   00           DB 0
+   \   0004A7   00           DB 0
+   \   0004A8   00           DB 0
+   \   0004A9   00           DB 0
+   \   0004AA   00           DB 0
+   \   0004AB   00           DB 0
+   \   0004AC   CC           DB 204
+   \   0004AD   44           DB 68
+   \   0004AE   44           DB 68
+   \   0004AF   44           DB 68
+   \   0004B0   44           DB 68
+   \   0004B1   3E           DB 62
+   \   0004B2   00           DB 0
+   \   0004B3   00           DB 0
+   \   0004B4   00           DB 0
+   \   0004B5   00           DB 0
+   \   0004B6   00           DB 0
+   \   0004B7   00           DB 0
+   \   0004B8   00           DB 0
+   \   0004B9   00           DB 0
+   \   0004BA   EE           DB 238
+   \   0004BB   44           DB 68
+   \   0004BC   28           DB 40
+   \   0004BD   28           DB 40
+   \   0004BE   28           DB 40
+   \   0004BF   10           DB 16
+   \   0004C0   00           DB 0
+   \   0004C1   00           DB 0
+   \   0004C2   00           DB 0
+   \   0004C3   00           DB 0
+   \   0004C4   00           DB 0
+   \   0004C5   00           DB 0
+   \   0004C6   00           DB 0
+   \   0004C7   00           DB 0
+   \   0004C8   D6           DB 214
+   \   0004C9   54           DB 84
+   \   0004CA   54           DB 84
+   \   0004CB   54           DB 84
+   \   0004CC   28           DB 40
+   \   0004CD   28           DB 40
+   \   0004CE   00           DB 0
+   \   0004CF   00           DB 0
+   \   0004D0   00           DB 0
+   \   0004D1   00           DB 0
+   \   0004D2   00           DB 0
+   \   0004D3   00           DB 0
+   \   0004D4   00           DB 0
+   \   0004D5   00           DB 0
+   \   0004D6   DC           DB 220
+   \   0004D7   48           DB 72
+   \   0004D8   30           DB 48
+   \   0004D9   30           DB 48
+   \   0004DA   48           DB 72
+   \   0004DB   EC           DB 236
+   \   0004DC   00           DB 0
+   \   0004DD   00           DB 0
+   \   0004DE   00           DB 0
+   \   0004DF   00           DB 0
+   \   0004E0   00           DB 0
+   \   0004E1   00           DB 0
+   \   0004E2   00           DB 0
+   \   0004E3   00           DB 0
+   \   0004E4   EE           DB 238
+   \   0004E5   44           DB 68
+   \   0004E6   28           DB 40
+   \   0004E7   28           DB 40
+   \   0004E8   10           DB 16
+   \   0004E9   10           DB 16
+   \   0004EA   20           DB 32
+   \   0004EB   E0           DB 224
+   \   0004EC   00           DB 0
+   \   0004ED   00           DB 0
+   \   0004EE   00           DB 0
+   \   0004EF   00           DB 0
+   \   0004F0   00           DB 0
+   \   0004F1   00           DB 0
+   \   0004F2   7C           DB 124
+   \   0004F3   48           DB 72
+   \   0004F4   10           DB 16
+   \   0004F5   10           DB 16
+   \   0004F6   24           DB 36
+   \   0004F7   7C           DB 124
+   \   0004F8   00           DB 0
+   \   0004F9   00           DB 0
+   \   0004FA   10           DB 16
+   \   0004FB   10           DB 16
+   \   0004FC   10           DB 16
+   \   0004FD   10           DB 16
+   \   0004FE   10           DB 16
+   \   0004FF   10           DB 16
+   \   000500   10           DB 16
+   \   000501   10           DB 16
+   \   000502   10           DB 16
+   \   000503   10           DB 16
+   \   000504   10           DB 16
+   \   000505   10           DB 16
+   \   000506   10           DB 16
+   \   000507   10           DB 16
+      4          
+      5          #define LCD_COMMAND 0x00
+      6          #define LCD_DATA    0x01
+      7          
+      8          #define LCD_MAX_BUF 25
+      9          
+     10          #define SOFTWARE_SPI
+     11          //#define HARDWARE_SPI  //LCD控制采用硬件SPI
+     12          
+     13          #define COL_SPACE   2   //字符间距
+     14          #define ROW_SPACE   4   //行间距
+     15          #define ALL_CNS     128
+     16          
+     17          // SPI TFT LCD端口定义
+     18          #define LCD_DC                 P0_0  // 数据/命令选择, L_R
+     19          #define LCD_SDA                P1_3  // 双向数据, L_D  P1_6   P1_3
+     20          #define LCD_SCL                P1_2  // 时钟, L_C P1_2  P1_5
+     21          //#define LCD_CS               P1_2  // 片选, L_S 将片选接地
+     22          #define LCD_RST                P1_7  // 控制lcd复位   
+     23          
+     24          //液晶控制口置1操作语句宏定义
+     25          //#define LCD_CS_SET  	(LCD_CS_CLRx01)   
+     26          #define	LCD_DC_SET  	(LCD_DC = 0x01)  
+     27          #define	LCD_SDA_SET  	(LCD_SDA = 0x01)    
+     28          #define	LCD_SCL_SET  	(LCD_SCL = 0x01)   
+     29          #define	LCD_RST_SET  	(LCD_RST = 0x01)  
+     30          
+     31          //液晶控制口置0操作语句宏定义
+     32          //#define LCD_CS_CLR  	(LCD_CS_CLRx00)    
+     33          #define	LCD_DC_CLR  	(LCD_DC = 0x00)  
+     34          #define	LCD_SDA_CLR  	(LCD_SDA = 0x00)     
+     35          #define	LCD_SCL_CLR  	(LCD_SCL = 0x00)
+     36          #define	LCD_RST_CLR  	(LCD_RST = 0x00)   
+     37          
+     38          
+     39          void SPI_Init(void);
+     40          void LCD_clear(unsigned int color);
+     41          void LCD_write_EN_string(unsigned char X,unsigned char Y,uint8 *s);
+     42          void SendByte(unsigned char Data);
+     43          void SPI_WriteData(unsigned char Data);
+     44          void Lcd_WriteData(unsigned char Data);
+     45          void Lcd_WriteIndex(unsigned char Index);
+     46          void LCD_WriteData_16Bit(unsigned short Data);
+     47          void Lcd_Reset(void);
+     48          
+     49          static void LCD_set_window(unsigned int X, unsigned int Y, 
+     50                                     unsigned Width,unsigned int Height);
+     51          static void LCD_write_EN(unsigned int X, unsigned int Y, unsigned char c);
+     52          
+     53          
+     54          extern void DelayMS(unsigned int msec);
+     55          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     56          unsigned int  Color    = YELLOW; // 前景颜色
+   \                     Color:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for Color>`
+   \   000002                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     57          unsigned int  Color_BK = BLUE;   // 背景颜色
+   \                     Color_BK:
+   \   000000                DS 2
+   \   000002                REQUIRE `?<Initializer for Color_BK>`
+   \   000002                REQUIRE __INIT_XDATA_I
+     58          
+     59          
+     60          
+     61          //向SPI总线传输一个8位数据
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     62          void  SendByte(unsigned char Data)
+   \                     SendByte:
+     63          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     64            unsigned char i=0;
+     65            
+     66            for(i=8;i>0;i--)
+   \   000000   7808         MOV     R0,#0x8
+     67            {
+     68              if(Data&0x80)	
+   \                     ??SendByte_0:
+   \   000002   E9           MOV     A,R1
+   \   000003   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000005   5004         JNC     ??SendByte_1
+     69                LCD_SDA_SET;//输出数据
+   \   000007   D293         SETB    0x90.3
+   \   000009   8002         SJMP    ??SendByte_2
+     70              else 
+     71                LCD_SDA_CLR;
+   \                     ??SendByte_1:
+   \   00000B   C293         CLR     0x90.3
+     72              
+     73              LCD_SCL_CLR;       
+   \                     ??SendByte_2:
+   \   00000D   C292         CLR     0x90.2
+     74              LCD_SCL_SET;
+   \   00000F   D292         SETB    0x90.2
+     75              Data<<=1; 
+   \   000011   C3           CLR     C
+   \   000012   33           RLC     A
+   \   000013   F9           MOV     R1,A
+     76            }
+   \   000014   18           DEC     R0
+   \   000015   E8           MOV     A,R0
+   \   000016   70EA         JNZ     ??SendByte_0
+     77          }
+   \   000018   02....       LJMP    ?BRET
+   \   00001B                REQUIRE _A_P1
+     78          
+     79          //向SPI总线传输一个8位数据
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     80          void  SPI_WriteData(unsigned char Data)
+   \                     SPI_WriteData:
+     81          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     82            unsigned char i=0;
+     83            
+     84            for(i=8;i>0;i--)
+   \   000000   7808         MOV     R0,#0x8
+     85            {
+     86              if(Data&0x80)	
+   \                     ??SPI_WriteData_0:
+   \   000002   E9           MOV     A,R1
+   \   000003   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000005   5004         JNC     ??SPI_WriteData_1
+     87                LCD_SDA_SET;//输出数据
+   \   000007   D293         SETB    0x90.3
+   \   000009   8002         SJMP    ??SPI_WriteData_2
+     88              else 
+     89                LCD_SDA_CLR;
+   \                     ??SPI_WriteData_1:
+   \   00000B   C293         CLR     0x90.3
+     90              
+     91              LCD_SCL_CLR;       
+   \                     ??SPI_WriteData_2:
+   \   00000D   C292         CLR     0x90.2
+     92              LCD_SCL_SET;
+   \   00000F   D292         SETB    0x90.2
+     93              Data<<=1; 
+   \   000011   C3           CLR     C
+   \   000012   33           RLC     A
+   \   000013   F9           MOV     R1,A
+     94            }
+   \   000014   18           DEC     R0
+   \   000015   E8           MOV     A,R0
+   \   000016   70EA         JNZ     ??SPI_WriteData_0
+     95          }
+   \   000018   02....       LJMP    ?BRET
+   \   00001B                REQUIRE _A_P1
+     96          
+     97          //向液晶屏写一个8位指令
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     98          void Lcd_WriteIndex(unsigned char Index)
+   \                     Lcd_WriteIndex:
+     99          { 
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    100            //LCD_CS_CLR;  //ALD del  SPI写命令时序开始
+    101            LCD_DC_CLR;
+   \   000005   C280         CLR     0x80.0
+    102            SPI_WriteData(Index);
+   \   000007                ; Setup parameters for call to function SPI_WriteData
+   \   000007   80..         SJMP    ?Subroutine1
+   \   000009                REQUIRE _A_P0
+    103            //LCD_CS_SET;  //ALD del
+    104          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL   ??SPI_WriteData?relay
+   \   000003                REQUIRE ??Subroutine35_0
+   \   000003                ; // Fall through to label ??Subroutine35_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine35_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    105          
+    106          //向液晶屏写一个8位数据
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    107          void Lcd_WriteData(unsigned char Data)
+   \                     Lcd_WriteData:
+    108          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    109            //LCD_CS_CLR;  //ALD del
+    110            LCD_DC_SET;
+   \   000005   D280         SETB    0x80.0
+    111            SPI_WriteData(Data);
+   \   000007                ; Setup parameters for call to function SPI_WriteData
+   \   000007   80..         SJMP    ?Subroutine1
+   \   000009                REQUIRE _A_P0
+    112            //LCD_CS_SET;  //ALD del 
+    113          }
+    114          
+    115          //向液晶屏写一个16位数据
+    116          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    117          void LCD_WriteData_16Bit(unsigned short Data)
+   \                     LCD_WriteData_16Bit:
+    118          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+    119            //LCD_CS_CLR;  //ALD del
+    120            LCD_DC_SET;
+   \   000008   D280         SETB    0x80.0
+    121            SPI_WriteData(Data>>8); //写入高8位数据
+   \   00000A                ; Setup parameters for call to function SPI_WriteData
+   \   00000A   F9           MOV     R1,A
+   \   00000B   12....       LCALL   ??SPI_WriteData?relay
+    122            SPI_WriteData(Data); 	  //写入低8位数据
+   \   00000E                ; Setup parameters for call to function SPI_WriteData
+   \   00000E   EE           MOV     A,R6
+   \   00000F   F9           MOV     R1,A
+   \   000010                REQUIRE ?Subroutine1
+   \   000010                REQUIRE _A_P0
+   \   000010                ; // Fall through to label ?Subroutine1
+    123            //LCD_CS_SET;  //ALD del 
+    124          }
+    125          
+    126          /****************************************************************************
+    127          * 名    称: LCD_write_byte()
+    128          * 功    能: 数据到LCD 
+    129          * 入口参数: data    —写入的数据
+    130          *           command —写数据/命令选择  
+    131          * 出口参数: 无 
+    132          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    133          static void LCD_write_byte(unsigned char data, unsigned char command)
+   \                     LCD_write_byte:
+    134          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+    135            ////LCD_CS_CLR ;// 使能LCD
+    136            if (command == 0)
+   \   000006   7005         JNZ     ??LCD_write_byte_0
+    137              Lcd_WriteIndex(data); // 传送命令
+   \   000008                ; Setup parameters for call to function Lcd_WriteIndex
+   \   000008   12....       LCALL   ??Lcd_WriteIndex?relay
+   \   00000B   8003         SJMP    ??LCD_write_byte_1
+    138            else
+    139              Lcd_WriteData(data) ; // 传送数据
+   \                     ??LCD_write_byte_0:
+   \   00000D                ; Setup parameters for call to function Lcd_WriteData
+   \   00000D   12....       LCALL   ??Lcd_WriteData?relay
+    140            //SendByte(data);
+    141            //LCD_CS_SET; // 关闭LCD
+    142            //LCD_DC_SET;	
+    143          }
+   \                     ??LCD_write_byte_1:
+   \   000010   80..         SJMP    ??Subroutine35_0
+    144          
+    145          /****************************************************************************
+    146          * 名    称: SPI_Init()
+    147          * 功    能: 初始化硬件SPI接口
+    148          * 入口参数: 无
+    149          * 出口参数: 无
+    150          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    151          void SPI_Init(void)
+   \                     SPI_Init:
+    152          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    153            PERCFG |= 0x02; //将UART1设置为SPI模式
+   \   000000   43F102       ORL     0xf1,#0x2
+    154            P1SEL  |= 0x60; //将P16/P15设置为SPI设备功能
+   \   000003   43F460       ORL     0xf4,#0x60
+    155            U1BAUD  = 0x00; 
+   \   000006   75FA00       MOV     0xfa,#0x0
+    156            U1CSR   = 0x00;
+   \   000009   75F800       MOV     0xf8,#0x0
+    157            U1GCR   = 0xF3; //SPICLK=系统时钟/2, 主模式, MSB在前
+   \   00000C   75FCF3       MOV     0xfc,#-0xd
+    158          }
+   \   00000F   02....       LJMP    ?BRET
+   \   000012                REQUIRE PERCFG
+   \   000012                REQUIRE P1SEL
+   \   000012                REQUIRE U1BAUD
+   \   000012                REQUIRE _A_U1CSR
+   \   000012                REQUIRE U1GCR
+    159          
+    160          // 复位lcd
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    161          void Lcd_Reset(void)
+   \                     Lcd_Reset:
+    162          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    163            LCD_RST_CLR;
+   \   000004   C297         CLR     0x90.7
+    164            DelayMS(150);
+   \   000006                ; Setup parameters for call to function DelayMS
+   \   000006   7A96         MOV     R2,#-0x6a
+   \   000008   7B00         MOV     R3,#0x0
+   \   00000A   12....       LCALL   ??DelayMS?relay
+    165            LCD_RST_SET;
+   \   00000D   D297         SETB    0x90.7
+    166            DelayMS(50);
+   \   00000F                ; Setup parameters for call to function DelayMS
+   \   00000F   7A32         MOV     R2,#0x32
+   \   000011   7B00         MOV     R3,#0x0
+   \   000013   12....       LCALL   ??DelayMS?relay
+    167          }
+   \   000016                REQUIRE ?Subroutine0
+   \   000016                REQUIRE _A_P1
+   \   000016                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    168          
+    169          //初始化SPI接口彩色TFT液晶，控制器为ST7735 
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    170          void InitLcd(void)
+   \                     InitLcd:
+    171          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    172            P0SEL &= 0xFE; //设置P00为普通IO口，
+   \   000004   53F3FE       ANL     0xf3,#0xfe
+    173            P0DIR |= 0x01; //设置P00为输出
+   \   000007   43FD01       ORL     0xfd,#0x1
+    174            P1SEL &= 0x73; //设置P12，P13,P17为普通IO口
+   \   00000A   53F473       ANL     0xf4,#0x73
+    175            P1DIR |= 0x8c; //设置P12，P13,P17为输出 
+   \   00000D   43FE8C       ORL     0xfe,#0x8c
+    176          
+    177            Lcd_Reset();
+   \   000010                ; Setup parameters for call to function Lcd_Reset
+   \   000010   12....       LCALL   ??Lcd_Reset?relay
+    178            
+    179          #ifdef HARDWARE_SPI                                         
+    180            P1DIR &= 0x9F;
+    181            SPI_Init();   //初始化SPI端口  
+    182          #endif
+    183           
+    184            LCD_write_byte(0x11,LCD_COMMAND); //退出睡眠模式
+   \   000013                ; Setup parameters for call to function LCD_write_byte
+   \   000013   7A00         MOV     R2,#0x0
+   \   000015   7911         MOV     R1,#0x11
+   \   000017   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    185            DelayMS(1); 
+   \                     ??CrossCallReturnLabel_66:
+   \   00001A   7B00         MOV     R3,#0x0
+   \   00001C   12....       LCALL   ??DelayMS?relay
+    186          
+    187            ///ST7735R Frame Rate
+    188            LCD_write_byte(0xB1,LCD_COMMAND); 
+   \   00001F                ; Setup parameters for call to function LCD_write_byte
+   \   00001F   7A00         MOV     R2,#0x0
+   \   000021   79B1         MOV     R1,#-0x4f
+   \   000023   12....       LCALL   ?Subroutine4 & 0xFFFF
+    189            LCD_write_byte(0x01,LCD_DATA); 
+    190            LCD_write_byte(0x2C,LCD_DATA); 
+    191            LCD_write_byte(0x2D,LCD_DATA); 
+    192            LCD_write_byte(0xB2,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_0:
+   \   000026   79B2         MOV     R1,#-0x4e
+   \   000028   12....       LCALL   ?Subroutine4 & 0xFFFF
+    193            LCD_write_byte(0x01,LCD_DATA); 
+    194            LCD_write_byte(0x2C,LCD_DATA); 
+    195            LCD_write_byte(0x2D,LCD_DATA); 
+    196            LCD_write_byte(0xB3,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_1:
+   \   00002B   79B3         MOV     R1,#-0x4d
+   \   00002D   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    197            LCD_write_byte(0x01,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_67:
+   \   000030   7901         MOV     R1,#0x1
+   \   000032   12....       LCALL   ?Subroutine10 & 0xFFFF
+    198            LCD_write_byte(0x2C,LCD_DATA); 
+    199            LCD_write_byte(0x2D,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_13:
+   \   000035   792D         MOV     R1,#0x2d
+   \   000037   12....       LCALL   ?Subroutine4 & 0xFFFF
+    200            LCD_write_byte(0x01,LCD_DATA); 
+    201            LCD_write_byte(0x2C,LCD_DATA); 
+    202            LCD_write_byte(0x2D,LCD_DATA); 
+    203          
+    204            LCD_write_byte(0xB4,LCD_COMMAND);//列对调
+   \                     ??CrossCallReturnLabel_2:
+   \   00003A   79B4         MOV     R1,#-0x4c
+   \   00003C   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    205            LCD_write_byte(0x07,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_68:
+   \   00003F   7907         MOV     R1,#0x7
+   \   000041   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    206            //ST7735R加电序列
+    207            LCD_write_byte(0xC0,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_115:
+   \   000044   79C0         MOV     R1,#-0x40
+   \   000046   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    208            LCD_write_byte(0xA2,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_69:
+   \   000049   79A2         MOV     R1,#-0x5e
+   \   00004B   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    209            LCD_write_byte(0x02,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_70:
+   \   00004E   12....       LCALL   ?Subroutine14 & 0xFFFF
+    210            LCD_write_byte(0x84,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_64:
+   \   000051   7984         MOV     R1,#-0x7c
+   \   000053   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    211            LCD_write_byte(0xC1,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_116:
+   \   000056   79C1         MOV     R1,#-0x3f
+   \   000058   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    212            LCD_write_byte(0xC5,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_71:
+   \   00005B   79C5         MOV     R1,#-0x3b
+   \   00005D   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    213            LCD_write_byte(0xC2,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_117:
+   \   000060   79C2         MOV     R1,#-0x3e
+   \   000062   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    214            LCD_write_byte(0x0A,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_72:
+   \   000065   790A         MOV     R1,#0xa
+   \   000067   12....       LCALL   ?Subroutine7 & 0xFFFF
+    215            LCD_write_byte(0x00,LCD_DATA); 
+    216            LCD_write_byte(0xC3,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_113:
+   \   00006A   79C3         MOV     R1,#-0x3d
+   \   00006C   12....       LCALL   ?Subroutine11 & 0xFFFF
+    217            LCD_write_byte(0x8A,LCD_DATA); 
+    218            LCD_write_byte(0x2A,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_15:
+   \   00006F   792A         MOV     R1,#0x2a
+   \   000071   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    219            LCD_write_byte(0xC4,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_118:
+   \   000074   79C4         MOV     R1,#-0x3c
+   \   000076   12....       LCALL   ?Subroutine11 & 0xFFFF
+    220            LCD_write_byte(0x8A,LCD_DATA); 
+    221            LCD_write_byte(0xEE,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_16:
+   \   000079   79EE         MOV     R1,#-0x12
+   \   00007B   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    222          
+    223            LCD_write_byte(0xC5,LCD_COMMAND); //加VCOM 
+   \                     ??CrossCallReturnLabel_119:
+   \   00007E   79C5         MOV     R1,#-0x3b
+   \   000080   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    224            LCD_write_byte(0x0E,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_73:
+   \   000083   790E         MOV     R1,#0xe
+   \   000085   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    225          
+    226            LCD_write_byte(0x36,LCD_COMMAND); //RGB模式 
+   \                     ??CrossCallReturnLabel_120:
+   \   000088   7936         MOV     R1,#0x36
+   \   00008A   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    227            LCD_write_byte(0xC8,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_74:
+   \   00008D   79C8         MOV     R1,#-0x38
+   \   00008F   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    228            
+    229            // ST7735R Gamma 校正序列
+    230            LCD_write_byte(0xe0,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_121:
+   \   000092   79E0         MOV     R1,#-0x20
+   \   000094   12....       LCALL   ?Subroutine5 & 0xFFFF
+    231            LCD_write_byte(0x0f,LCD_DATA); 
+    232            LCD_write_byte(0x1a,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_3:
+   \   000097   791A         MOV     R1,#0x1a
+   \   000099   12....       LCALL   ?Subroutine5 & 0xFFFF
+    233            LCD_write_byte(0x0f,LCD_DATA); 
+    234            LCD_write_byte(0x18,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_4:
+   \   00009C   7918         MOV     R1,#0x18
+   \   00009E   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    235            LCD_write_byte(0x2f,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_75:
+   \   0000A1   792F         MOV     R1,#0x2f
+   \   0000A3   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    236            LCD_write_byte(0x28,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_76:
+   \   0000A6   7928         MOV     R1,#0x28
+   \   0000A8   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    237            LCD_write_byte(0x20,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_77:
+   \   0000AB   7920         MOV     R1,#0x20
+   \   0000AD   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    238            LCD_write_byte(0x22,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_78:
+   \   0000B0   7922         MOV     R1,#0x22
+   \   0000B2   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    239            LCD_write_byte(0x1f,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_79:
+   \   0000B5   791F         MOV     R1,#0x1f
+   \   0000B7   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    240            LCD_write_byte(0x1b,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_80:
+   \   0000BA   791B         MOV     R1,#0x1b
+   \   0000BC   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    241            LCD_write_byte(0x23,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_81:
+   \   0000BF   7923         MOV     R1,#0x23
+   \   0000C1   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    242            LCD_write_byte(0x37,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_82:
+   \   0000C4   7937         MOV     R1,#0x37
+   \   0000C6   12....       LCALL   ?Subroutine8 & 0xFFFF
+    243            LCD_write_byte(0x00,LCD_DATA); 
+    244          
+    245            LCD_write_byte(0x07,LCD_DATA); 
+    246            LCD_write_byte(0x02,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_9:
+   \   0000C9   12....       LCALL   ?Subroutine14 & 0xFFFF
+    247            LCD_write_byte(0x10,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_65:
+   \   0000CC   7910         MOV     R1,#0x10
+   \   0000CE   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    248            LCD_write_byte(0xe1,LCD_COMMAND); 
+   \                     ??CrossCallReturnLabel_122:
+   \   0000D1   79E1         MOV     R1,#-0x1f
+   \   0000D3   12....       LCALL   ?Subroutine5 & 0xFFFF
+    249            LCD_write_byte(0x0f,LCD_DATA); 
+    250            LCD_write_byte(0x1b,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_5:
+   \   0000D6   791B         MOV     R1,#0x1b
+   \   0000D8   12....       LCALL   ?Subroutine5 & 0xFFFF
+    251            LCD_write_byte(0x0f,LCD_DATA); 
+    252            LCD_write_byte(0x17,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_6:
+   \   0000DB   7917         MOV     R1,#0x17
+   \   0000DD   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    253            LCD_write_byte(0x33,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_83:
+   \   0000E0   7933         MOV     R1,#0x33
+   \   0000E2   12....       LCALL   ?Subroutine10 & 0xFFFF
+    254            LCD_write_byte(0x2c,LCD_DATA); 
+    255            LCD_write_byte(0x29,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_14:
+   \   0000E5   7929         MOV     R1,#0x29
+   \   0000E7   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    256            LCD_write_byte(0x2e,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_84:
+   \   0000EA   792E         MOV     R1,#0x2e
+   \   0000EC   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    257            LCD_write_byte(0x30,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_85:
+   \   0000EF   7930         MOV     R1,#0x30
+   \   0000F1   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    258            LCD_write_byte(0x30,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_86:
+   \   0000F4   7930         MOV     R1,#0x30
+   \   0000F6   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    259            LCD_write_byte(0x39,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_87:
+   \   0000F9   7939         MOV     R1,#0x39
+   \   0000FB   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    260            LCD_write_byte(0x3f,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_88:
+   \   0000FE   793F         MOV     R1,#0x3f
+   \   000100   12....       LCALL   ?Subroutine8 & 0xFFFF
+    261            LCD_write_byte(0x00,LCD_DATA); 
+    262            LCD_write_byte(0x07,LCD_DATA); 
+    263            LCD_write_byte(0x03,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_10:
+   \   000103   7903         MOV     R1,#0x3
+   \   000105   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    264            LCD_write_byte(0x10,LCD_DATA);  
+   \                     ??CrossCallReturnLabel_89:
+   \   000108   7910         MOV     R1,#0x10
+   \   00010A   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    265          
+    266            LCD_write_byte(0x2a,LCD_COMMAND);
+   \                     ??CrossCallReturnLabel_123:
+   \   00010D   792A         MOV     R1,#0x2a
+   \   00010F   12....       LCALL   ?Subroutine6 & 0xFFFF
+    267            LCD_write_byte(0x00,LCD_DATA);
+    268            LCD_write_byte(0x00,LCD_DATA);
+    269            LCD_write_byte(0x00,LCD_DATA);
+    270            LCD_write_byte(0x7f,LCD_DATA);
+   \                     ??CrossCallReturnLabel_7:
+   \   000112   797F         MOV     R1,#0x7f
+   \   000114   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    271            LCD_write_byte(0x2b,LCD_COMMAND);
+   \                     ??CrossCallReturnLabel_124:
+   \   000117   792B         MOV     R1,#0x2b
+   \   000119   12....       LCALL   ?Subroutine6 & 0xFFFF
+    272            LCD_write_byte(0x00,LCD_DATA);
+    273            LCD_write_byte(0x00,LCD_DATA);
+    274            LCD_write_byte(0x00,LCD_DATA);
+    275            LCD_write_byte(0x9f,LCD_DATA);
+   \                     ??CrossCallReturnLabel_8:
+   \   00011C   799F         MOV     R1,#-0x61
+   \   00011E   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    276          
+    277            LCD_write_byte(0xF0,LCD_COMMAND); //使能测试命令  
+   \                     ??CrossCallReturnLabel_125:
+   \   000121   79F0         MOV     R1,#-0x10
+   \   000123   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    278            LCD_write_byte(0x01,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_90:
+   \   000126   7901         MOV     R1,#0x1
+   \   000128   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    279            LCD_write_byte(0xF6,LCD_COMMAND); //关闭ram省电模式 
+   \                     ??CrossCallReturnLabel_126:
+   \   00012B   79F6         MOV     R1,#-0xa
+   \   00012D   12....       LCALL   ?Subroutine7 & 0xFFFF
+    280            LCD_write_byte(0x00,LCD_DATA); 
+    281          
+    282            LCD_write_byte(0x3A,LCD_COMMAND); //色深16bit 
+   \                     ??CrossCallReturnLabel_114:
+   \   000130   793A         MOV     R1,#0x3a
+   \   000132   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    283            LCD_write_byte(0x05,LCD_DATA); 
+   \                     ??CrossCallReturnLabel_91:
+   \   000135   7905         MOV     R1,#0x5
+   \   000137   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    284            
+    285            LCD_write_byte(0x29,LCD_COMMAND); //开显示  
+   \                     ??CrossCallReturnLabel_127:
+   \   00013A   7929         MOV     R1,#0x29
+   \   00013C   12....       LCALL   ??LCD_write_byte?relay
+    286            LCD_clear(WINDOW_BK_COLOR);       //以背景色清屏 
+   \   00013F                ; Setup parameters for call to function LCD_clear
+   \   00013F   7AFF         MOV     R2,#-0x1
+   \   000141   7BDF         MOV     R3,#-0x21
+   \   000143   12....       LCALL   ??LCD_clear?relay
+    287          }
+   \   000146   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   000149                REQUIRE P0SEL
+   \   000149                REQUIRE P0DIR
+   \   000149                REQUIRE P1SEL
+   \   000149                REQUIRE P1DIR
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_99:
+   \   000003   798A         MOV     R1,#-0x76
+   \   000005   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_100:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine24:
+   \   000000   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_108:
+   \   000003   792C         MOV     R1,#0x2c
+   \   000005   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_109:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   000003   7907         MOV     R1,#0x7
+   \   000005   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_101:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000003   7900         MOV     R1,#0x0
+   \   000005   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine23:
+   \   000000   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_110:
+   \   000003   7900         MOV     R1,#0x0
+   \   000005   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_111:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine30:
+   \   000000   12....       LCALL   ??LCD_write_byte?relay
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function DelayMS
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003   7A01         MOV     R2,#0x1
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_102:
+   \   000003   790F         MOV     R1,#0xf
+   \   000005   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_103:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_104:
+   \   000003   7901         MOV     R1,#0x1
+   \   000005   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000008   792D         MOV     R1,#0x2d
+   \   00000A   12....       LCALL   ??LCD_write_byte?relay
+   \   00000D                ; Setup parameters for call to function LCD_write_byte
+   \   00000D                ; Setup parameters for call to function LCD_write_byte
+   \   00000D                ; Setup parameters for call to function LCD_write_byte
+   \   00000D   7A00         MOV     R2,#0x0
+   \   00000F   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   7902         MOV     R1,#0x2
+   \   000002                REQUIRE ??Subroutine36_0
+   \   000002                ; // Fall through to label ??Subroutine36_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine36_0:
+   \   000000   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_105:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine37_0:
+   \   000000   12....       LCALL   ?Subroutine30 & 0xFFFF
+   \                     ??CrossCallReturnLabel_112:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_106:
+   \   000003   7900         MOV     R1,#0x0
+   \   000005                REQUIRE ??Subroutine38_0
+   \   000005                ; // Fall through to label ??Subroutine38_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine38_0:
+   \   000000   12....       LCALL   ??LCD_write_byte?relay
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003                ; Setup parameters for call to function LCD_write_byte
+   \   000003   7A00         MOV     R2,#0x0
+   \   000005   22           RET
+    288          
+    289          /****************************************************************************
+    290          * 名    称: LCD_clear()
+    291          * 功    能: 以指定颜色清屏
+    292          * 入口参数: color —清屏颜色
+    293          * 出口参数: 无
+    294          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    295          void LCD_clear(unsigned int color)
+   \                     LCD_clear:
+    296          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+    297            register unsigned int  i=0,j=0;
+    298            register unsigned char ch;
+    299            register unsigned char cl;
+    300            
+    301            LCD_set_window(0,0,X_MAX_PIXEL,Y_MAX_PIXEL);
+   \   000009                ; Setup parameters for call to function LCD_set_window
+   \   000009   75..80       MOV     ?V0 + 2,#-0x80
+   \   00000C   75..00       MOV     ?V0 + 3,#0x0
+   \   00000F   78..         MOV     R0,#?V0 + 2
+   \   000011   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000014   78..         MOV     R0,#?V0 + 2
+   \   000016   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000019   7C00         MOV     R4,#0x0
+   \   00001B   7D00         MOV     R5,#0x0
+   \   00001D   7A00         MOV     R2,#0x0
+   \   00001F   7B00         MOV     R3,#0x0
+   \   000021   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000024   12....       LCALL   ?DEALLOC_XSTACK8
+    302            ch = color>>8;
+   \   000027   AF..         MOV     R7,?V0 + 1
+    303            cl = color&0xFF;
+   \   000029   AE..         MOV     R6,?V0 + 0
+    304            LCD_write_byte(0x2C,LCD_COMMAND);
+   \   00002B                ; Setup parameters for call to function LCD_write_byte
+   \   00002B   7A00         MOV     R2,#0x0
+   \   00002D   792C         MOV     R1,#0x2c
+   \   00002F   12....       LCALL   ??LCD_write_byte?relay
+    305            //LCD_CS_CLR;
+    306            LCD_DC_SET;
+   \   000032   D280         SETB    0x80.0
+    307            for (i=0;i<Y_MAX_PIXEL;i++)
+   \   000034   75..80       MOV     ?V0 + 1,#-0x80
+    308              for (j=0;j<2;j++)
+   \                     ??LCD_clear_0:
+   \   000037   75..02       MOV     ?V0 + 0,#0x2
+    309              {
+    310                SendByte(ch);
+   \                     ??LCD_clear_1:
+   \   00003A                ; Setup parameters for call to function SendByte
+   \   00003A   12....       LCALL   ?Subroutine16 & 0xFFFF
+    311                SendByte(cl);
+    312                SendByte(ch);
+    313                SendByte(cl);
+    314                SendByte(ch);
+    315                SendByte(cl);
+    316                SendByte(ch);
+    317                SendByte(cl);
+    318                SendByte(ch);
+    319                SendByte(cl);
+    320                SendByte(ch);
+    321                SendByte(cl);
+    322                SendByte(ch);
+    323                SendByte(cl);
+    324                SendByte(ch);
+    325                SendByte(cl);
+    326                SendByte(ch);
+    327                SendByte(cl);
+    328                SendByte(ch);
+    329                SendByte(cl);
+    330                SendByte(ch);
+    331                SendByte(cl);
+    332                SendByte(ch);
+    333                SendByte(cl);
+    334                SendByte(ch);
+    335                SendByte(cl);
+    336                SendByte(ch);
+    337                SendByte(cl);
+    338                SendByte(ch);
+    339                SendByte(cl);
+    340                SendByte(ch);
+    341                SendByte(cl);
+    342                SendByte(ch);
+    343                SendByte(cl);
+    344                SendByte(ch);
+    345                SendByte(cl);
+    346                SendByte(ch);
+    347                SendByte(cl);
+    348                SendByte(ch);
+    349                SendByte(cl);
+    350                SendByte(ch);
+    351                SendByte(cl);
+    352                SendByte(ch);
+    353                SendByte(cl);
+    354                SendByte(ch);
+    355                SendByte(cl);
+    356                SendByte(ch);
+    357                SendByte(cl);
+    358                SendByte(ch);
+    359                SendByte(cl);
+    360                SendByte(ch);
+    361                SendByte(cl);
+    362                SendByte(ch);
+    363                SendByte(cl);
+    364                SendByte(ch);
+    365                SendByte(cl);
+    366                SendByte(ch);
+    367                SendByte(cl);
+    368                SendByte(ch);
+    369                SendByte(cl);
+    370                SendByte(ch);
+    371                SendByte(cl);
+    372                SendByte(ch);
+    373                SendByte(cl);      
+    374                SendByte(ch);
+   \                     ??CrossCallReturnLabel_26:
+   \   00003D                ; Setup parameters for call to function SendByte
+   \   00003D   12....       LCALL   ?Subroutine16 & 0xFFFF
+    375                SendByte(cl);
+    376                SendByte(ch);
+    377                SendByte(cl);
+    378                SendByte(ch);
+    379                SendByte(cl);
+    380                SendByte(ch);
+    381                SendByte(cl);
+    382                SendByte(ch);
+    383                SendByte(cl);
+    384                SendByte(ch);
+    385                SendByte(cl);
+    386                SendByte(ch);
+    387                SendByte(cl);
+    388                SendByte(ch);
+    389                SendByte(cl);
+    390                SendByte(ch);
+    391                SendByte(cl);
+    392                SendByte(ch);
+    393                SendByte(cl);
+    394                SendByte(ch);
+    395                SendByte(cl);
+    396                SendByte(ch);
+    397                SendByte(cl);
+    398                SendByte(ch);
+    399                SendByte(cl);
+    400                SendByte(ch);
+    401                SendByte(cl);
+    402                SendByte(ch);
+    403                SendByte(cl);
+    404                SendByte(ch);
+    405                SendByte(cl);
+    406                SendByte(ch);
+    407                SendByte(cl);
+    408                SendByte(ch);
+    409                SendByte(cl);
+    410                SendByte(ch);
+    411                SendByte(cl);
+    412                SendByte(ch);
+    413                SendByte(cl);
+    414                SendByte(ch);
+    415                SendByte(cl);
+    416                SendByte(ch);
+    417                SendByte(cl);
+    418                SendByte(ch);
+    419                SendByte(cl);
+    420                SendByte(ch);
+    421                SendByte(cl);
+    422                SendByte(ch);
+    423                SendByte(cl);
+    424                SendByte(ch);
+    425                SendByte(cl);
+    426                SendByte(ch);
+    427                SendByte(cl);
+    428                SendByte(ch);
+    429                SendByte(cl);
+    430                SendByte(ch);
+    431                SendByte(cl);
+    432                SendByte(ch);
+    433                SendByte(cl);
+    434                SendByte(ch);
+    435                SendByte(cl);
+    436                SendByte(ch);
+    437                SendByte(cl);
+    438              }
+   \                     ??CrossCallReturnLabel_27:
+   \   000040   15..         DEC     ?V0 + 0
+   \   000042   E5..         MOV     A,?V0 + 0
+   \   000044   70F4         JNZ     ??LCD_clear_1
+   \   000046   15..         DEC     ?V0 + 1
+   \   000048   E5..         MOV     A,?V0 + 1
+   \   00004A   70EB         JNZ     ??LCD_clear_0
+    439            LCD_DC_SET;
+   \   00004C   D280         SETB    0x80.0
+    440            //LCD_CS_SET;
+    441          }
+   \   00004E   7F04         MOV     R7,#0x4
+   \   000050   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000053                REQUIRE _A_P0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_48:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_49:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine26:
+   \   000000   12....       LCALL   ?Subroutine28 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine28 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine28:
+   \   000000   12....       LCALL   ?Subroutine31 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine31 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine31:
+   \   000000   12....       LCALL   ?Subroutine33 & 0xFFFF
+   \                     ??CrossCallReturnLabel_60:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine33 & 0xFFFF
+   \                     ??CrossCallReturnLabel_61:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine33:
+   \   000000   12....       LCALL   ?Subroutine34 & 0xFFFF
+   \                     ??CrossCallReturnLabel_62:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine34 & 0xFFFF
+   \                     ??CrossCallReturnLabel_63:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine34:
+   \   000000   EF           MOV     A,R7
+   \   000001   F9           MOV     R1,A
+   \   000002   12....       LCALL   ??SendByte?relay
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005   EE           MOV     A,R6
+   \   000006   F9           MOV     R1,A
+   \   000007   12....       LCALL   ??SendByte?relay
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   12....       LCALL   ??LCD_set_window?relay
+   \   000003   7404         MOV     A,#0x4
+   \   000005   22           RET
+    442          
+    443          /****************************************************************************
+    444          * 名    称: LCD_set_window()
+    445          * 功    能: 设置显示窗口
+    446          * 入口参数: X - 显示窗口左上角横坐标      Y —显示窗口左上角纵坐标
+    447          *           Width —显示窗口宽度          Height —显示窗口高度
+    448          * 出口参数: 无
+    449          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    450          static void LCD_set_window(unsigned int X    , unsigned int Y, 
+   \                     LCD_set_window:
+    451                                     unsigned int Width, unsigned int Height)
+    452          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+   \   00000D   740E         MOV     A,#0xe
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   000015   7410         MOV     A,#0x10
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   12....       LCALL   ?Subroutine19 & 0xFFFF
+    453            LCD_write_byte(0x2A,LCD_COMMAND);         //列地址设置命令
+   \                     ??CrossCallReturnLabel_33:
+   \   00001D                ; Setup parameters for call to function LCD_write_byte
+   \   00001D   7A00         MOV     R2,#0x0
+   \   00001F   792A         MOV     R1,#0x2a
+   \   000021   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    454            LCD_write_byte(X>>8,LCD_DATA) ;           //设置显示窗口左上角横坐标高位
+   \                     ??CrossCallReturnLabel_92:
+   \   000024   A9..         MOV     R1,?V0 + 1
+   \   000026   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    455            LCD_write_byte((X+2)&0xFF,LCD_DATA);      //设置显示窗口左上角横坐标低位 	
+   \                     ??CrossCallReturnLabel_93:
+   \   000029   E5..         MOV     A,?V0 + 0
+   \   00002B   2402         ADD     A,#0x2
+   \   00002D   12....       LCALL   ?Subroutine12 & 0xFFFF
+    456            LCD_write_byte((X+Width+1)>>8,LCD_DATA);  //设置宽度高位 	
+   \                     ??CrossCallReturnLabel_17:
+   \   000030   F8           MOV     R0,A
+   \   000031   E5..         MOV     A,?V0 + 1
+   \   000033   35..         ADDC    A,?V0 + 5
+   \   000035   F9           MOV     R1,A
+   \   000036   E8           MOV     A,R0
+   \   000037   2401         ADD     A,#0x1
+   \   000039   E9           MOV     A,R1
+   \   00003A   3400         ADDC    A,#0x0
+   \   00003C   12....       LCALL   ?Subroutine12 & 0xFFFF
+    457            LCD_write_byte((X+Width+1)&0xFF,LCD_DATA);// 设置宽度低位 	
+   \                     ??CrossCallReturnLabel_18:
+   \   00003F   04           INC     A
+   \   000040   F9           MOV     R1,A
+   \   000041   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    458            
+    459            LCD_write_byte(0x2B,LCD_COMMAND);         //行地址设置命令
+   \                     ??CrossCallReturnLabel_128:
+   \   000044   792B         MOV     R1,#0x2b
+   \   000046   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    460            LCD_write_byte(Y>>8,LCD_DATA) ;           //设置显示窗口左上角纵坐标高位
+   \                     ??CrossCallReturnLabel_94:
+   \   000049   EF           MOV     A,R7
+   \   00004A   F9           MOV     R1,A
+   \   00004B   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    461            LCD_write_byte((Y+3)&0xFF,LCD_DATA);      //设置显示窗口左上角纵坐标低位 
+   \                     ??CrossCallReturnLabel_95:
+   \   00004E   EE           MOV     A,R6
+   \   00004F   2403         ADD     A,#0x3
+   \   000051   12....       LCALL   ?Subroutine13 & 0xFFFF
+    462            LCD_write_byte((Y+Height+2)>>8,LCD_DATA); // 设置显示窗口高度高位 	
+   \                     ??CrossCallReturnLabel_19:
+   \   000054   F8           MOV     R0,A
+   \   000055   EF           MOV     A,R7
+   \   000056   35..         ADDC    A,?V0 + 3
+   \   000058   F9           MOV     R1,A
+   \   000059   E8           MOV     A,R0
+   \   00005A   2402         ADD     A,#0x2
+   \   00005C   E9           MOV     A,R1
+   \   00005D   3400         ADDC    A,#0x0
+   \   00005F   12....       LCALL   ?Subroutine13 & 0xFFFF
+    463            LCD_write_byte((Y+Height+2)&0xFF,LCD_DATA);// 设置显示窗口高度低位 	  
+   \                     ??CrossCallReturnLabel_20:
+   \   000062   2402         ADD     A,#0x2
+   \   000064   F9           MOV     R1,A
+   \   000065   12....       LCALL   ??Subroutine38_0 & 0xFFFF
+    464            LCD_write_byte(0x2C,LCD_COMMAND) ;
+   \                     ??CrossCallReturnLabel_129:
+   \   000068   792C         MOV     R1,#0x2c
+   \   00006A   12....       LCALL   ??LCD_write_byte?relay
+    465          }
+   \   00006D                REQUIRE ?Subroutine2
+   \   00006D                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7F06         MOV     R7,#0x6
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine25:
+   \   000000   F9           MOV     R1,A
+   \   000001                REQUIRE ??Subroutine37_0
+   \   000001                ; // Fall through to label ??Subroutine37_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_97:
+   \   000003   EE           MOV     A,R6
+   \   000004   25..         ADD     A,?V0 + 2
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_98:
+   \   000003   E5..         MOV     A,?V0 + 0
+   \   000005   25..         ADD     A,?V0 + 4
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 2,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 3,A
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 4,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 5,A
+   \   000007   22           RET
+    466          
+    467          /****************************************************************************
+    468          * 名    称: DrawPixel()
+    469          * 功    能: 在指定位置以指定颜色显示像素
+    470          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    471          void DrawPixel(unsigned int x, unsigned int y, unsigned int color)
+   \                     DrawPixel:
+    472          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   7409         MOV     A,#0x9
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   FE           MOV     R6,A
+   \   00000C   A3           INC     DPTR
+   \   00000D   E0           MOVX    A,@DPTR
+    473            //LCD_set_XY(x,y);  //设定显示位置 andy
+    474            LCD_write_byte(color>>8,LCD_DATA);  //发送显示颜色数据高位字节
+   \   00000E                ; Setup parameters for call to function LCD_write_byte
+   \   00000E   7A01         MOV     R2,#0x1
+   \   000010   F9           MOV     R1,A
+   \   000011   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+    475            LCD_write_byte(color&0xFF,LCD_DATA);//发送显示颜色数据低位字节
+   \                     ??CrossCallReturnLabel_96:
+   \   000014   EE           MOV     A,R6
+   \   000015   F9           MOV     R1,A
+   \   000016   12....       LCALL   ??LCD_write_byte?relay
+    476          }
+   \   000019   02....       LJMP    ??Subroutine35_0 & 0xFFFF
+    477          
+    478          /****************************************************************************
+    479          * 名    称: DrawVerticalLine()
+    480          * 功    能: 在指定位置以指定颜色画垂直线
+    481          * 入口参数: X - 垂直线起始位置横坐标      Y —垂直线起始位置纵坐标
+    482          *           Length —垂直线长度           Color —垂直线颜色
+    483          * 出口参数: 无
+    484          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    485          void DrawVerticalLine(unsigned int x, unsigned int y, 
+   \                     DrawVerticalLine:
+    486                                unsigned int Length,unsigned int Color)               
+    487          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   740E         MOV     A,#0xe
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   00000D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000010   12....       LCALL   ?Subroutine20 & 0xFFFF
+    488            register int  index = 0;
+    489            register char ch,cl;
+    490            
+    491            ch = (unsigned char)(Color>>8);
+    492            cl = (unsigned char)(Color);
+    493            LCD_set_window(x,y,1,Length);
+   \                     ??CrossCallReturnLabel_36:
+   \   000013                ; Setup parameters for call to function LCD_set_window
+   \   000013   78..         MOV     R0,#?V0 + 0
+   \   000015   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000018   75..01       MOV     ?V0 + 4,#0x1
+   \   00001B   75..00       MOV     ?V0 + 5,#0x0
+   \   00001E   78..         MOV     R0,#?V0 + 4
+   \   000020   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000023   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   000026   12....       LCALL   ?DEALLOC_XSTACK8
+    494            for(index=0;index<Length;index++)
+   \   000029   7E00         MOV     R6,#0x0
+   \   00002B   7F00         MOV     R7,#0x0
+   \   00002D   8003         SJMP    ??CrossCallReturnLabel_11
+    495            {
+    496            LCD_write_byte(ch,LCD_DATA) ;
+   \                     ??DrawVerticalLine_0:
+   \   00002F                ; Setup parameters for call to function LCD_write_byte
+   \   00002F   12....       LCALL   ?Subroutine9 & 0xFFFF
+    497            LCD_write_byte(cl,LCD_DATA) ;
+    498            }
+   \                     ??CrossCallReturnLabel_11:
+   \   000032   C3           CLR     C
+   \   000033   EE           MOV     A,R6
+   \   000034   95..         SUBB    A,?V0 + 0
+   \   000036   EF           MOV     A,R7
+   \   000037   95..         SUBB    A,?V0 + 1
+   \   000039   40F4         JC      ??DrawVerticalLine_0
+    499          }
+   \   00003B   02....       LJMP    ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine21:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F5..         MOV     ?V0 + 0,A
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   F5..         MOV     ?V0 + 1,A
+   \   000007   7410         MOV     A,#0x10
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FE           MOV     R6,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F5..         MOV     ?V0 + 2,A
+   \   000006   EE           MOV     A,R6
+   \   000007   F5..         MOV     ?V0 + 3,A
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   7A01         MOV     R2,#0x1
+   \   000002   A9..         MOV     R1,?V0 + 2
+   \   000004   12....       LCALL   ??Subroutine37_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_107:
+   \   000007   A9..         MOV     R1,?V0 + 3
+   \   000009   12....       LCALL   ??LCD_write_byte?relay
+   \   00000C   EE           MOV     A,R6
+   \   00000D   2401         ADD     A,#0x1
+   \   00000F   0E           INC     R6
+   \   000010   EF           MOV     A,R7
+   \   000011   3400         ADDC    A,#0x0
+   \   000013   FF           MOV     R7,A
+   \   000014   22           RET
+    500          
+    501          /****************************************************************************
+    502          * 名    称: DrawHorizonLine()
+    503          * 功    能: 在指定位置以指定颜色画水平线
+    504          * 入口参数: X - 水平线起始位置横坐标      Y —水平线起始位置纵坐标
+    505          *           Length —水平线长度           Color —水平线颜色
+    506          * 出口参数: 无
+    507          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    508          void DrawHorizonLine(unsigned int x, unsigned int y, 
+   \                     DrawHorizonLine:
+    509                               unsigned int Length,unsigned int Color)               
+    510          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   740E         MOV     A,#0xe
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   00000D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000010   12....       LCALL   ?Subroutine20 & 0xFFFF
+    511            register int  index = 0;
+    512            register char ch,cl;
+    513            
+    514            ch = (unsigned char)(Color>>8);
+    515            cl = (unsigned char)(Color);
+    516            LCD_set_window(x,y,Length,1);
+   \                     ??CrossCallReturnLabel_37:
+   \   000013                ; Setup parameters for call to function LCD_set_window
+   \   000013   75..01       MOV     ?V0 + 4,#0x1
+   \   000016   75..00       MOV     ?V0 + 5,#0x0
+   \   000019   78..         MOV     R0,#?V0 + 4
+   \   00001B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001E   78..         MOV     R0,#?V0 + 0
+   \   000020   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000023   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   000026   12....       LCALL   ?DEALLOC_XSTACK8
+    517            for(index=0;index<Length;index++)
+   \   000029   7E00         MOV     R6,#0x0
+   \   00002B   7F00         MOV     R7,#0x0
+   \   00002D   8003         SJMP    ??CrossCallReturnLabel_12
+    518            {
+    519              LCD_write_byte(ch,LCD_DATA);
+   \                     ??DrawHorizonLine_0:
+   \   00002F                ; Setup parameters for call to function LCD_write_byte
+   \   00002F   12....       LCALL   ?Subroutine9 & 0xFFFF
+    520              LCD_write_byte(cl,LCD_DATA);
+    521            }
+   \                     ??CrossCallReturnLabel_12:
+   \   000032   C3           CLR     C
+   \   000033   EE           MOV     A,R6
+   \   000034   95..         SUBB    A,?V0 + 0
+   \   000036   EF           MOV     A,R7
+   \   000037   95..         SUBB    A,?V0 + 1
+   \   000039   40F4         JC      ??DrawHorizonLine_0
+    522          }
+   \   00003B   02....       LJMP    ?Subroutine2 & 0xFFFF
+    523          
+    524          /****************************************************************************
+    525          * 名    称: DrawRect()
+    526          * 功    能: 在指定位置以指定颜色画矩形
+    527          * 入口参数: X - 矩形起始位置横坐标      Y —矩形起始位置纵坐标
+    528          *           Width  —矩形宽度           Height —矩形高度                   
+    529          *           Color  —矩形颜色             
+    530          * 出口参数: 无
+    531          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    532          void DrawRect(unsigned int Xpos, unsigned int Ypos, unsigned int Width, 
+   \                     DrawRect:
+    533                        unsigned int Height,unsigned Color)
+    534          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   8C..         MOV     ?V0 + 0,R4
+   \   00000B   8D..         MOV     ?V0 + 1,R5
+   \   00000D   7410         MOV     A,#0x10
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   F5..         MOV     ?V0 + 6,A
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   F5..         MOV     ?V0 + 7,A
+   \   000019   7412         MOV     A,#0x12
+   \   00001B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001E   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000021   7414         MOV     A,#0x14
+   \   000023   12....       LCALL   ?XSTACK_DISP0_8
+   \   000026   12....       LCALL   ?Subroutine19 & 0xFFFF
+    535            DrawHorizonLine(Xpos, Ypos, Width, Color) ;
+   \                     ??CrossCallReturnLabel_34:
+   \   000029                ; Setup parameters for call to function DrawHorizonLine
+   \   000029   78..         MOV     R0,#?V0 + 2
+   \   00002B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00002E   78..         MOV     R0,#?V0 + 6
+   \   000030   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000033   12....       LCALL   ??DrawHorizonLine?relay
+   \   000036   7404         MOV     A,#0x4
+   \   000038   12....       LCALL   ?DEALLOC_XSTACK8
+    536            DrawHorizonLine(Xpos, (Ypos + Height), Width, Color) ;
+   \   00003B                ; Setup parameters for call to function DrawHorizonLine
+   \   00003B   78..         MOV     R0,#?V0 + 2
+   \   00003D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000040   78..         MOV     R0,#?V0 + 6
+   \   000042   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000045   E5..         MOV     A,?V0 + 0
+   \   000047   25..         ADD     A,?V0 + 4
+   \   000049   FC           MOV     R4,A
+   \   00004A   E5..         MOV     A,?V0 + 1
+   \   00004C   35..         ADDC    A,?V0 + 5
+   \   00004E   FD           MOV     R5,A
+   \   00004F   EE           MOV     A,R6
+   \   000050   FA           MOV     R2,A
+   \   000051   EF           MOV     A,R7
+   \   000052   FB           MOV     R3,A
+   \   000053   12....       LCALL   ??DrawHorizonLine?relay
+   \   000056   7404         MOV     A,#0x4
+   \   000058   12....       LCALL   ?DEALLOC_XSTACK8
+    537            DrawVerticalLine(Xpos, Ypos, Height, Color) ;
+   \   00005B                ; Setup parameters for call to function DrawVerticalLine
+   \   00005B   78..         MOV     R0,#?V0 + 2
+   \   00005D   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000060   78..         MOV     R0,#?V0 + 4
+   \   000062   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000065   AC..         MOV     R4,?V0 + 0
+   \   000067   AD..         MOV     R5,?V0 + 1
+   \   000069   EE           MOV     A,R6
+   \   00006A   FA           MOV     R2,A
+   \   00006B   EF           MOV     A,R7
+   \   00006C   FB           MOV     R3,A
+   \   00006D   12....       LCALL   ??DrawVerticalLine?relay
+   \   000070   7404         MOV     A,#0x4
+   \   000072   12....       LCALL   ?DEALLOC_XSTACK8
+    538            DrawVerticalLine((Xpos+Width-1) ,Ypos, Height, Color);
+   \   000075                ; Setup parameters for call to function DrawVerticalLine
+   \   000075   78..         MOV     R0,#?V0 + 2
+   \   000077   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007A   78..         MOV     R0,#?V0 + 4
+   \   00007C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00007F   AC..         MOV     R4,?V0 + 0
+   \   000081   AD..         MOV     R5,?V0 + 1
+   \   000083   EE           MOV     A,R6
+   \   000084   25..         ADD     A,?V0 + 6
+   \   000086   F8           MOV     R0,A
+   \   000087   EF           MOV     A,R7
+   \   000088   35..         ADDC    A,?V0 + 7
+   \   00008A   F9           MOV     R1,A
+   \   00008B   E8           MOV     A,R0
+   \   00008C   24FF         ADD     A,#-0x1
+   \   00008E   FA           MOV     R2,A
+   \   00008F   E9           MOV     A,R1
+   \   000090   34FF         ADDC    A,#-0x1
+   \   000092   FB           MOV     R3,A
+   \   000093   12....       LCALL   ??DrawVerticalLine?relay
+   \   000096   7404         MOV     A,#0x4
+   \   000098   12....       LCALL   ?DEALLOC_XSTACK8
+    539          }
+   \   00009B                REQUIRE ?Subroutine3
+   \   00009B                ; // Fall through to label ?Subroutine3
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   7F08         MOV     R7,#0x8
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    540          
+    541          /****************************************************************************
+    542          * 名    称: DrawRectFill()
+    543          * 功    能: 在指定位置以指定颜色画矩形
+    544          * 入口参数: X - 矩形起始位置横坐标      Y —矩形起始位置纵坐标
+    545          *           Width  —矩形宽度           Height —矩形高度                   
+    546          *           Color  —矩形填充颜色             
+    547          * 出口参数: 无
+    548          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    549          void DrawRectFill(unsigned int Xpos  , unsigned int Ypos, unsigned int Width, 
+   \                     DrawRectFill:
+    550                            unsigned int Height, unsigned Color                        )
+    551          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   7410         MOV     A,#0x10
+   \   000007   12....       LCALL   ?XSTACK_DISP0_8
+   \   00000A   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   00000D   7412         MOV     A,#0x12
+   \   00000F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000012   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000015   7414         MOV     A,#0x14
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0 + 6,A
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F5..         MOV     ?V0 + 7,A
+    552            register unsigned int i;
+    553            register unsigned int index = Width*Height/16+1;
+   \   000021   85....       MOV     ?V0 + 0,?V0 + 4
+   \   000024   85....       MOV     ?V0 + 1,?V0 + 5
+   \   000027   E5..         MOV     A,?V0 + 0
+   \   000029   85..F0       MOV     B,?V0 + 2
+   \   00002C   A4           MUL     AB
+   \   00002D   C5..         XCH     A,?V0 + 0
+   \   00002F   A8F0         MOV     R0,B
+   \   000031   85..F0       MOV     B,?V0 + 3
+   \   000034   A4           MUL     AB
+   \   000035   28           ADD     A,R0
+   \   000036   F8           MOV     R0,A
+   \   000037   85..F0       MOV     B,?V0 + 2
+   \   00003A   E5..         MOV     A,?V0 + 1
+   \   00003C   A4           MUL     AB
+   \   00003D   28           ADD     A,R0
+   \   00003E   F5..         MOV     ?V0 + 1,A
+   \   000040   7404         MOV     A,#0x4
+   \   000042   78..         MOV     R0,#?V0 + 0
+   \   000044   12....       LCALL   ?US_SHR
+   \   000047   E5..         MOV     A,?V0 + 0
+   \   000049   2401         ADD     A,#0x1
+   \   00004B   F5..         MOV     ?V0 + 0,A
+   \   00004D   E5..         MOV     A,?V0 + 1
+   \   00004F   3400         ADDC    A,#0x0
+   \   000051   F5..         MOV     ?V0 + 1,A
+    554            register char ch,cl;
+    555            
+    556            ch = (unsigned char)(Color>>8);
+   \   000053   AE..         MOV     R6,?V0 + 7
+    557            cl = (unsigned char)(Color);
+   \   000055   AF..         MOV     R7,?V0 + 6
+    558            LCD_set_window(Xpos,Ypos,Width,Height);
+   \   000057                ; Setup parameters for call to function LCD_set_window
+   \   000057   78..         MOV     R0,#?V0 + 2
+   \   000059   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00005C   78..         MOV     R0,#?V0 + 4
+   \   00005E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000061   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   000064   12....       LCALL   ?DEALLOC_XSTACK8
+    559            LCD_write_byte(0x2C,LCD_COMMAND);
+   \   000067                ; Setup parameters for call to function LCD_write_byte
+   \   000067   7A00         MOV     R2,#0x0
+   \   000069   792C         MOV     R1,#0x2c
+   \   00006B   12....       LCALL   ??LCD_write_byte?relay
+    560            //LCD_CS_CLR ; andy
+    561            LCD_DC_SET ;
+   \   00006E   D280         SETB    0x80.0
+    562            for(i=0;i<index;i++)
+   \   000070   75..00       MOV     ?V0 + 2,#0x0
+   \   000073   75..00       MOV     ?V0 + 3,#0x0
+   \   000076   8012         SJMP    ??DrawRectFill_0
+    563            {
+    564                SendByte(ch);
+   \                     ??DrawRectFill_1:
+   \   000078                ; Setup parameters for call to function SendByte
+   \   000078   12....       LCALL   ?Subroutine17 & 0xFFFF
+    565                SendByte(cl);
+    566                SendByte(ch);
+    567                SendByte(cl); 
+    568                SendByte(ch);
+    569                SendByte(cl);      
+    570                SendByte(ch);
+    571                SendByte(cl);
+    572                SendByte(ch);
+    573                SendByte(cl);
+    574                SendByte(ch);
+    575                SendByte(cl);
+    576                SendByte(ch);
+    577                SendByte(cl);
+    578                SendByte(ch);
+    579                SendByte(cl);
+    580                SendByte(ch);
+   \                     ??CrossCallReturnLabel_28:
+   \   00007B                ; Setup parameters for call to function SendByte
+   \   00007B   12....       LCALL   ?Subroutine17 & 0xFFFF
+    581                SendByte(cl);
+    582                SendByte(ch);
+    583                SendByte(cl);
+    584                SendByte(ch);
+    585                SendByte(cl);
+    586                SendByte(ch);
+    587                SendByte(cl);
+    588                SendByte(ch);
+    589                SendByte(cl);
+    590                SendByte(ch);
+    591                SendByte(cl);
+    592                SendByte(ch);
+    593                SendByte(cl);
+    594                SendByte(ch);
+    595                SendByte(cl);
+    596            }    
+   \                     ??CrossCallReturnLabel_29:
+   \   00007E   E5..         MOV     A,?V0 + 2
+   \   000080   2401         ADD     A,#0x1
+   \   000082   F5..         MOV     ?V0 + 2,A
+   \   000084   E5..         MOV     A,?V0 + 3
+   \   000086   3400         ADDC    A,#0x0
+   \   000088   F5..         MOV     ?V0 + 3,A
+   \                     ??DrawRectFill_0:
+   \   00008A   C3           CLR     C
+   \   00008B   E5..         MOV     A,?V0 + 2
+   \   00008D   95..         SUBB    A,?V0 + 0
+   \   00008F   E5..         MOV     A,?V0 + 3
+   \   000091   95..         SUBB    A,?V0 + 1
+   \   000093   40E3         JC      ??DrawRectFill_1
+    597          }
+   \   000095   02....       LJMP    ?Subroutine3 & 0xFFFF
+   \   000098                REQUIRE _A_P0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   12....       LCALL   ?Subroutine27 & 0xFFFF
+   \                     ??CrossCallReturnLabel_50:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine27 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine27:
+   \   000000   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \                     ??CrossCallReturnLabel_54:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine29 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine29:
+   \   000000   12....       LCALL   ?Subroutine32 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003                ; Setup parameters for call to function SendByte
+   \   000003   12....       LCALL   ?Subroutine32 & 0xFFFF
+   \                     ??CrossCallReturnLabel_59:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine32:
+   \   000000   EE           MOV     A,R6
+   \   000001   F9           MOV     R1,A
+   \   000002   12....       LCALL   ??SendByte?relay
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005                ; Setup parameters for call to function SendByte
+   \   000005   EF           MOV     A,R7
+   \   000006   F9           MOV     R1,A
+   \   000007   12....       LCALL   ??SendByte?relay
+   \   00000A   22           RET
+    598          
+    599          /****************************************************************************
+    600          * 名    称: LCD_write_EN()
+    601          * 功    能: 在指定位置显示 7 ×14 点阵ASCII字符 
+    602          * 入口参数: X - 显示位置左上角横坐标      Y —显示位置左上角纵坐标
+    603          *           c —显示字符                  
+    604          * 出口参数: 无
+    605          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    606          static void LCD_write_EN(unsigned int X, unsigned int Y, unsigned char c)
+   \                     LCD_write_EN:
+    607          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+    608            unsigned char i,j,temp;
+    609            
+    610            LCD_set_window(X,Y,7,14);
+   \   000007                ; Setup parameters for call to function LCD_set_window
+   \   000007   75..0E       MOV     ?V0 + 0,#0xe
+   \   00000A   75..00       MOV     ?V0 + 1,#0x0
+   \   00000D   78..         MOV     R0,#?V0 + 0
+   \   00000F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000012   75..07       MOV     ?V0 + 0,#0x7
+   \   000015   78..         MOV     R0,#?V0 + 0
+   \   000017   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00001A   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   00001D   12....       LCALL   ?DEALLOC_XSTACK8
+    611            //LCD_CS_CLR ;
+    612            LCD_DC_SET ;
+   \   000020   D280         SETB    0x80.0
+    613            for(i=0;i<14;i++)
+   \   000022   7F00         MOV     R7,#0x0
+    614            {
+    615              temp = ASCII7x14[c-32][i];
+   \                     ??LCD_write_EN_0:
+   \   000024   EE           MOV     A,R6
+   \   000025   75F00E       MOV     B,#0xe
+   \   000028   A4           MUL     AB
+   \   000029   FA           MOV     R2,A
+   \   00002A   ABF0         MOV     R3,B
+   \   00002C   8F..         MOV     ?V0 + 0,R7
+   \   00002E   74..         MOV     A,#(ASCII7x14 + 64) & 0xff
+   \   000030   25..         ADD     A,?V0 + 0
+   \   000032   F8           MOV     R0,A
+   \   000033   74..         MOV     A,#((ASCII7x14 - 448) >> 8) & 0xff
+   \   000035   3400         ADDC    A,#0x0
+   \   000037   F9           MOV     R1,A
+   \   000038   E8           MOV     A,R0
+   \   000039   2A           ADD     A,R2
+   \   00003A   F582         MOV     DPL,A
+   \   00003C   E9           MOV     A,R1
+   \   00003D   3B           ADDC    A,R3
+   \   00003E   F583         MOV     DPH,A
+   \   000040   E4           CLR     A
+   \   000041   93           MOVC    A,@A+DPTR
+   \   000042   F5..         MOV     ?V0 + 1,A
+    616              for(j=0;j<7;j++)
+   \   000044   75..07       MOV     ?V0 + 0,#0x7
+    617              {
+    618                if(temp&0x80)
+   \                     ??LCD_write_EN_1:
+   \   000047   E5..         MOV     A,?V0 + 1
+   \   000049   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00004B   500B         JNC     ??LCD_write_EN_2
+    619                {
+    620                  SendByte(Color>>8);  
+   \   00004D                ; Setup parameters for call to function SendByte
+   \   00004D   90....       MOV     DPTR,#Color + 1
+   \   000050   12....       LCALL   ?Subroutine22 & 0xFFFF
+    621                  SendByte(Color) ;
+   \                     ??CrossCallReturnLabel_40:
+   \   000053                ; Setup parameters for call to function SendByte
+   \   000053   90....       MOV     DPTR,#Color
+   \   000056   8009         SJMP    ??LCD_write_EN_3
+    622                }
+    623                else
+    624                {
+    625                  SendByte(Color_BK>>8) ;  
+   \                     ??LCD_write_EN_2:
+   \   000058                ; Setup parameters for call to function SendByte
+   \   000058   90....       MOV     DPTR,#Color_BK + 1
+   \   00005B   12....       LCALL   ?Subroutine22 & 0xFFFF
+    626                  SendByte(Color_BK);
+   \                     ??CrossCallReturnLabel_41:
+   \   00005E                ; Setup parameters for call to function SendByte
+   \   00005E   90....       MOV     DPTR,#Color_BK
+    627                }            
+   \                     ??LCD_write_EN_3:
+   \   000061   12....       LCALL   ?Subroutine22 & 0xFFFF
+    628                temp <<= 1 ;
+   \                     ??CrossCallReturnLabel_42:
+   \   000064   E5..         MOV     A,?V0 + 1
+   \   000066   C3           CLR     C
+   \   000067   33           RLC     A
+   \   000068   F5..         MOV     ?V0 + 1,A
+    629              }
+   \   00006A   15..         DEC     ?V0 + 0
+   \   00006C   E5..         MOV     A,?V0 + 0
+   \   00006E   70D7         JNZ     ??LCD_write_EN_1
+    630            }
+   \   000070   0F           INC     R7
+   \   000071   EF           MOV     A,R7
+   \   000072   C3           CLR     C
+   \   000073   940E         SUBB    A,#0xe
+   \   000075   40AD         JC      ??LCD_write_EN_0
+    631            //LCD_CS_SET ; andy
+    632            LCD_DC_SET ;
+   \   000077   D280         SETB    0x80.0
+    633          }
+   \   000079   7F02         MOV     R7,#0x2
+   \   00007B   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   00007E                REQUIRE _A_P0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine22:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F9           MOV     R1,A
+   \   000002   12....       LCALL   ??SendByte?relay
+   \   000005   22           RET
+    634          
+    635          /****************************************************************************
+    636          * 名    称: LCD_write_EN_string()
+    637          * 功    能: 在指定位置显示 7 ×14 点阵ASCII字符串 
+    638          * 入口参数: X - 显示位置左上角横坐标      Y —显示位置左上角纵坐标
+    639          *           s —字符串指针                  
+    640          * 出口参数: 无
+    641          ****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    642          void LCD_write_EN_string(unsigned char X,unsigned char Y,uint8 *s)
+   \                     LCD_write_EN_string:
+    643          {
+   \   000000   74F3         MOV     A,#-0xd
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 13
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 3,R1
+   \   000007   8A..         MOV     ?V0 + 4,R2
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+    644            unsigned char i=0;
+   \   00000D   75..00       MOV     ?V0 + 2,#0x0
+    645            
+    646            while (*s)
+   \                     ??LCD_write_EN_string_0:
+   \   000010   8E82         MOV     DPL,R6
+   \   000012   8F83         MOV     DPH,R7
+   \   000014   E0           MOVX    A,@DPTR
+   \   000015   F9           MOV     R1,A
+   \   000016   602F         JZ      ??LCD_write_EN_string_1
+    647            {
+    648              LCD_write_EN(X+i*7,Y,*s);
+   \   000018                ; Setup parameters for call to function LCD_write_EN
+   \   000018   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00001B   AC..         MOV     R4,?V0 + 0
+   \   00001D   7D00         MOV     R5,#0x0
+   \   00001F   85....       MOV     ?V0 + 0,?V0 + 3
+   \   000022   E5..         MOV     A,?V0 + 2
+   \   000024   75F007       MOV     B,#0x7
+   \   000027   A4           MUL     AB
+   \   000028   FA           MOV     R2,A
+   \   000029   ABF0         MOV     R3,B
+   \   00002B   E5..         MOV     A,?V0 + 0
+   \   00002D   2A           ADD     A,R2
+   \   00002E   FA           MOV     R2,A
+   \   00002F   E4           CLR     A
+   \   000030   3B           ADDC    A,R3
+   \   000031   FB           MOV     R3,A
+   \   000032   12....       LCALL   ??LCD_write_EN?relay
+    649              s++;
+   \   000035   8E82         MOV     DPL,R6
+   \   000037   8F83         MOV     DPH,R7
+   \   000039   A3           INC     DPTR
+   \   00003A   AE82         MOV     R6,DPL
+   \   00003C   AF83         MOV     R7,DPH
+    650              i++;
+   \   00003E   05..         INC     ?V0 + 2
+    651              if(i>=HAL_LCD_MAX_CHARS)return;
+   \   000040   E5..         MOV     A,?V0 + 2
+   \   000042   C3           CLR     C
+   \   000043   9412         SUBB    A,#0x12
+   \   000045   40C9         JC      ??LCD_write_EN_string_0
+   \                     ??LCD_write_EN_string_1:
+   \   000047   7F05         MOV     R7,#0x5
+   \   000049   02....       LJMP    ?BANKED_LEAVE_XDATA
+    652            }
+    653            return;
+    654          }
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for Color>`:
+   \   000000   E0FF         DW 65504
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for Color_BK>`:
+   \   000000   1F00         DW 31
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SendByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SendByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPI_WriteData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPI_WriteData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Lcd_WriteIndex?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Lcd_WriteIndex
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Lcd_WriteData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Lcd_WriteData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_WriteData_16Bit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_WriteData_16Bit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_write_byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_write_byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPI_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPI_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Lcd_Reset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Lcd_Reset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??InitLcd?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    InitLcd
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_clear?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_clear
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_set_window?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_set_window
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DrawPixel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DrawPixel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DrawVerticalLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DrawVerticalLine
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DrawHorizonLine?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DrawHorizonLine
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DrawRect?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DrawRect
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??DrawRectFill?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    DrawRectFill
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_write_EN?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_write_EN
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LCD_write_EN_string?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LCD_write_EN_string
+
+   Maximum stack usage in bytes:
+
+     Function              ISTACK PSTACK XSTACK
+     --------              ------ ------ ------
+     DrawHorizonLine           0      0     38
+       -> LCD_set_window       0      0     36
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+     DrawPixel                 0      0     11
+       -> LCD_write_byte       0      0     18
+       -> LCD_write_byte       0      0     18
+     DrawRect                  0      0     26
+       -> DrawHorizonLine      0      0     40
+       -> DrawHorizonLine      0      0     40
+       -> DrawVerticalLine     0      0     40
+       -> DrawVerticalLine     0      0     40
+     DrawRectFill              0      0     26
+       -> LCD_set_window       0      0     40
+       -> LCD_write_byte       0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+       -> SendByte             0      0     32
+     DrawVerticalLine          0      0     38
+       -> LCD_set_window       0      0     36
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+     InitLcd                   2      0      0
+       -> Lcd_Reset            4      0      0
+       -> LCD_write_byte       4      0      0
+       -> DelayMS              4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_write_byte       4      0      0
+       -> LCD_clear            4      0      0
+     LCD_WriteData_16Bit       0      0      9
+       -> SPI_WriteData        0      0     18
+       -> SPI_WriteData        0      0     18
+     LCD_clear                 0      0     16
+       -> LCD_set_window       0      0     32
+       -> LCD_write_byte       0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+       -> SendByte             0      0     24
+     LCD_set_window            0      0     34
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+       -> LCD_write_byte       0      0     28
+     LCD_write_EN              0      0     27
+       -> LCD_set_window       0      0     28
+       -> SendByte             0      0     20
+       -> SendByte             0      0     20
+       -> SendByte             0      0     20
+       -> SendByte             0      0     20
+     LCD_write_EN_string       0      0     13
+       -> LCD_write_EN         0      0     26
+     LCD_write_byte            0      0     25
+       -> Lcd_WriteIndex       0      0     18
+       -> Lcd_WriteData        0      0     18
+     Lcd_Reset                 2      0      0
+       -> DelayMS              4      0      0
+       -> DelayMS              4      0      0
+     Lcd_WriteData             0      0     18
+       -> SPI_WriteData        0      0     18
+     Lcd_WriteIndex            0      0     18
+       -> SPI_WriteData        0      0     18
+     SPI_Init                  0      0      0
+     SPI_WriteData             0      0      9
+     SendByte                  0      0     16
+
+
+   Segment part sizes:
+
+     Function/Label              Bytes
+     --------------              -----
+     _A_P0                          1
+     _A_P1                          1
+     PERCFG                         1
+     P0SEL                          1
+     P1SEL                          1
+     _A_U1CSR                       1
+     U1BAUD                         1
+     U1GCR                          1
+     P0DIR                          1
+     P1DIR                          1
+     ASCII7x14                   1288
+     Color                          2
+     Color_BK                       2
+     SendByte                      27
+     SPI_WriteData                 27
+     Lcd_WriteIndex                 9
+     ?Subroutine1                   3
+     ??Subroutine35_0               5
+     Lcd_WriteData                  9
+     LCD_WriteData_16Bit           16
+     LCD_write_byte                18
+     SPI_Init                      18
+     Lcd_Reset                     22
+     ?Subroutine0                   7
+     InitLcd                      329
+     ?Subroutine11                  9
+     ?Subroutine10                  4
+     ?Subroutine24                  9
+     ?Subroutine8                   9
+     ?Subroutine6                   9
+     ?Subroutine23                  9
+     ?Subroutine30                  6
+     ?Subroutine5                   9
+     ?Subroutine4                  16
+     ?Subroutine14                  2
+     ??Subroutine36_0               4
+     ??Subroutine37_0               4
+     ?Subroutine7                   5
+     ??Subroutine38_0               6
+     LCD_clear                     83
+     ?Subroutine16                  7
+     ?Subroutine26                  7
+     ?Subroutine28                  7
+     ?Subroutine31                  7
+     ?Subroutine33                  7
+     ?Subroutine34                 11
+     ?Subroutine15                  6
+     LCD_set_window               109
+     ?Subroutine2                   5
+     ?Subroutine25                  1
+     ?Subroutine13                  7
+     ?Subroutine12                  8
+     ?Subroutine19                  8
+     ?Subroutine18                  8
+     DrawPixel                     28
+     DrawVerticalLine              62
+     ?Subroutine21                 10
+     ?Subroutine20                 10
+     ?Subroutine9                  21
+     DrawHorizonLine               62
+     DrawRect                     155
+     ?Subroutine3                   5
+     DrawRectFill                 152
+     ?Subroutine17                  7
+     ?Subroutine27                  7
+     ?Subroutine29                  7
+     ?Subroutine32                 11
+     LCD_write_EN                 126
+     ?Subroutine22                  6
+     LCD_write_EN_string           76
+     ?<Initializer for Color>       2
+     ?<Initializer for Color_BK>    2
+     ??SendByte?relay               6
+     ??SPI_WriteData?relay          6
+     ??Lcd_WriteIndex?relay         6
+     ??Lcd_WriteData?relay          6
+     ??LCD_WriteData_16Bit?relay    6
+     ??LCD_write_byte?relay         6
+     ??SPI_Init?relay               6
+     ??Lcd_Reset?relay              6
+     ??InitLcd?relay                6
+     ??LCD_clear?relay              6
+     ??LCD_set_window?relay         6
+     ??DrawPixel?relay              6
+     ??DrawVerticalLine?relay       6
+     ??DrawHorizonLine?relay        6
+     ??DrawRect?relay               6
+     ??DrawRectFill?relay           6
+     ??LCD_write_EN?relay           6
+     ??LCD_write_EN_string?relay    6
+
+ 
+ 1 617 bytes in segment BANKED_CODE
+   108 bytes in segment BANK_RELAYS
+ 1 288 bytes in segment CODE_C
+    10 bytes in segment SFR_AN
+     4 bytes in segment XDATA_I
+     4 bytes in segment XDATA_ID
+ 
+ 3 017 bytes of CODE  memory
+     0 bytes of DATA  memory (+ 10 bytes shared)
+     4 bytes of XDATA memory
+
+Errors: none
+Warnings: none

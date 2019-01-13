@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<settings>
+    <DebugChecksum>
+        <Checksum>594316806</Checksum>
+    </DebugChecksum>
+    <DisAssemblyWindow>
+        <NumStates>_ 1</NumStates>
+        <State_1>_ 1</State_1>
+    </DisAssemblyWindow>
+    <InstructionProfiling>
+        <Enabled>_ 0</Enabled>
+    </InstructionProfiling>
+    <CodeCoverage>
+        <Enabled>_ 0</Enabled>
+    </CodeCoverage>
+    <StackPlugin>
+        <Enabled>1</Enabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>1</SpWarningsEnabled>
+        <WarnHow>0</WarnHow>
+        <UseTrigger>1</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </StackPlugin>
+    <Stack>
+        <FillEnabled>0</FillEnabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>1</SpWarningsEnabled>
+        <WarnLogOnly>1</WarnLogOnly>
+        <UseTrigger>1</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </Stack>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <Log_file>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </Log_file>
+    <Breakpoints>
+        <Count>0</Count>
+    </Breakpoints>
+    <ChipconEmu>
+        <StopTimersOnHalt>1</StopTimersOnHalt>
+        <LeaveTargetRunning>1</LeaveTargetRunning>
+    </ChipconEmu>
+    <Aliases>
+        <A0>_ "C:\Users\Administrator\Desktop\PT100\下位机工程\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A0>
+        <A1>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\hal\common\hal_assert.c" ""</A1>
+        <A2>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\_hal_uart_dma.c" ""</A2>
+        <A3>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_dma.c" ""</A3>
+        <A4>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_flash.c" ""</A4>
+        <A5>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c" ""</A5>
+        <A6>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_autopend.c" ""</A6>
+        <A7>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_backoff_timer.c" ""</A7>
+        <A8>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mcu.c" ""</A8>
+        <A9>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mem.c" ""</A9>
+        <A10>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Memory.c" ""</A10>
+        <A11>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Timers.c" ""</A11>
+        <A12>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\services\saddr\saddr.c" ""</A12>
+        <A13>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\stack\nwk\nwk_globals.c" ""</A13>
+        <A14>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Components\zmac\f8w\zmac.c" ""</A14>
+        <A15>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\OnBoard.c" ""</A15>
+        <A16>_ "C:\Users\lu\Desktop\2.单播消息1 - 副本\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c"</A16>
+        <A17>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_autopend.c" ""</A17>
+        <A18>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Timers.c" ""</A18>
+        <A19>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Components\zmac\f8w\zmac.c" ""</A19>
+        <A20>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\SampleApp\Source\SampleApp.c" ""</A20>
+        <A21>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A21>
+        <A22>_ "E:\zigbee\软件资料\软件资料\开发例程\5.zigbee协议栈应用与组网\5.点播通讯-无线通讯\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\chipcon_cstartup.s51" ""</A22>
+        <A23>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\hal\common\hal_drivers.c" ""</A23>
+        <A24>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mcu.c" ""</A24>
+        <A25>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mem.c" ""</A25>
+        <A26>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Clock.c" ""</A26>
+        <A27>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Timers.c" ""</A27>
+        <A28>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Components\zmac\f8w\zmac.c" ""</A28>
+        <A29>_ "E:\zigbee开发板v4\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A29>
+        <A30>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\2.终端接收协调单播消息\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A30>
+        <A31>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\common\hal_drivers.c" ""</A31>
+        <A32>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\_hal_uart_dma.c" ""</A32>
+        <A33>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_adc.c" ""</A33>
+        <A34>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_dma.c" ""</A34>
+        <A35>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_key.c" ""</A35>
+        <A36>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_led.c" ""</A36>
+        <A37>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_startup.c" ""</A37>
+        <A38>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_timer.c" ""</A38>
+        <A39>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c" ""</A39>
+        <A40>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_autopend.c" ""</A40>
+        <A41>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_radio.c" ""</A41>
+        <A42>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_rx.c" ""</A42>
+        <A43>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_tx.c" ""</A43>
+        <A44>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_csp_tx.c" ""</A44>
+        <A45>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mcu.c" ""</A45>
+        <A46>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\mt\MT_UART.c" ""</A46>
+        <A47>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL.c" ""</A47>
+        <A48>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Clock.c" ""</A48>
+        <A49>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Memory.c" ""</A49>
+        <A50>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_PwrMgr.c" ""</A50>
+        <A51>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Timers.c" ""</A51>
+        <A52>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Components\stack\nwk\nwk_globals.c" ""</A52>
+        <A53>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\OnBoard.c" ""</A53>
+        <A54>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\20 主机手动发送从机中断接收spi通信\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A54>
+        <A55>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\_hal_uart_dma.c" ""</A55>
+        <A56>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\_hal_uart_isr.c" ""</A56>
+        <A57>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\hal\target\CC2530EB\hal_uart.c" ""</A57>
+        <A58>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_radio.c" ""</A58>
+        <A59>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\mac_rx_onoff.c" ""</A59>
+        <A60>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\mac\low_level\srf04\single_chip\mac_mem.c" ""</A60>
+        <A61>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL.c" ""</A61>
+        <A62>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\osal\common\OSAL_Memory.c" ""</A62>
+        <A63>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\services\saddr\saddr.c" ""</A63>
+        <A64>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\stack\sys\ZGlobals.c" ""</A64>
+        <A65>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Components\stack\zdo\ZDSecMgr.c" ""</A65>
+        <A66>_ "E:\资料\研一\zigbee开发板\代码及其教程\6.自制工程\实例项目\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A66>
+        <Count>67</Count>
+        <SuppressDialog>1</SuppressDialog>
+    </Aliases>
+</settings>

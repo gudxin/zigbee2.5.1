@@ -1,0 +1,353 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         15/Apr/2017  10:48:14 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\MAX31865\MAX31865\M #
+#                          AX31865_c_code\main.c                              #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-2. #
+#                          3.0-1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\. #
+#                          .\..\..\Tools\CC2530DB\f8wCoord.cfg (-DCPU32MHZ    #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\Tools\CC2530DB\f8wConfig.cfg (-DSECURE=0      #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          C:\Users\Administrator\Desktop\MAX31865\MAX31865\M #
+#                          AX31865_c_code\main.c -D ZIGBEEPRO -D ZTOOL_P1 -D  #
+#                          xMT_TASK -D xMT_SYS_FUNC -D REFECTOR -D            #
+#                          xMT_ZDO_FUNC -D NV_INT -D NV_RESTORE -lC           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\Coor #
+#                          dinatorEB-Pro\List\ -lA C:\Users\Administrator\Des #
+#                          ktop\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZIG #
+#                          BEE\ZIGBEE\CC2530DB\CoordinatorEB-Pro\List\        #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\Coor #
+#                          dinatorEB-Pro\Obj\ -e --debug --core=plain         #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I C:\Users\Administrator\Des #
+#                          ktop\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZIG #
+#                          BEE\ZIGBEE\CC2530DB\ -I C:\Users\Administrator\Des #
+#                          ktop\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZIG #
+#                          BEE\ZIGBEE\CC2530DB\..\SOURCE\ -I                  #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\ZMAIN\TI2530DB\ -I C:\Users\Administrator\Des #
+#                          ktop\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\ZIG #
+#                          BEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MT\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-2. #
+#                          3.0-1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\HAL\INCLUDE\ -I           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\ -I      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\ -I           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I             #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\AF\ -I                 #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\NWK\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\SEC\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\SAPI\ -I               #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\SYS\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\STACK\ZDO\ -I                #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\ZMAC\F8W\ -I                 #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\ZMAC\ -I                     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\ -I           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SDATA\ -I           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\MAC\INCLUDE\ -I              #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I           #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_C #
+#                          HIP\ -Ohz --require_prototypes                     #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\Coor #
+#                          dinatorEB-Pro\List\main.lst                        #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-2.3.0 #
+#                          -1.4.0\Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\Coor #
+#                          dinatorEB-Pro\Obj\main.r51                         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c
+      1          
+      2          //define interface of MAX31865
+      3          #define CS_HIGH   P1_4 = 1;         //define PD.2 as CS 
+      4          #define CS_LOW    P1_4 = 0;  
+      5          //
+      6          #define Long_TIME_OUT  (uint32_t)0xFFFFFF;
+      7          #define SPI_FAIL       1
+      8          #define SPI_OK         0
+      9          #define Rref           400         //if using PT100, change this from 4000 to 400
+     10          uint32 TIMEOUT;                  //define SPI communication timeout 
+                 ^
+Error[Pe020]: identifier "uint32" is undefined
+     11          uint8  Data_Buffer[8];           //define data storage
+                 ^
+Error[Pe020]: identifier "uint8" is undefined
+     12          uint8 MAX31865_Config;           //the value is MAX31865 configuration register
+                 ^
+Error[Pe020]: identifier "uint8" is undefined
+     13          uint8 MAX31855_Fault_Status;     //the value is Fault Status register 
+                 ^
+Error[Pe020]: identifier "uint8" is undefined
+     14          uint8 Operation_Fault;          //define SPI status, if =1 SPI error.
+                 ^
+Error[Pe020]: identifier "uint8" is undefined
+     15          float AD_Value;                   //store the value of RTD MSB and RTD LSB register
+     16          uint8 RTD_H,RTD_L;
+                 ^
+Error[Pe020]: identifier "uint8" is undefined
+     17          float RTD_Resistor;            //RTD resistor value based on RTD_MSB and RTD_LSB register
+     18          float RTD_Temperature;         // Temperature value based on direct read out data
+     19          float Corrected_Temperature;   //Temperature after correction
+     20          
+     21          #define Auto_Mode ;    
+     22          
+     23          //Used to Read and Write MAX31865
+     24          //Register_Address: MAX31865 Register address, buff: stored the write data or read back data, nBytes: read or write Byte Number.
+     25          bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+                 ^
+Error[Pe020]: identifier "bool" is undefined
+
+  bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+                     ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",25  Error[Pe020]: 
+          identifier "uint8" is undefined
+
+  bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+                                            ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",25  Error[Pe020]: 
+          identifier "uint8" is undefined
+
+  bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+                                                        ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",25  Error[Pe020]: 
+          identifier "uint8" is undefined
+
+  bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+       ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",25  Error[Pa045]: 
+          function "SPI_Operation" has no prototype
+     26          {  
+     27          /*	  uint8_t  Address,i;
+     28          	  Address=Register_Address;
+     29          		            //Enable SPI
+     30          	  CS_LOW;  //Pull CS Low
+     31                    SPI_ReceiveData();    
+     32                    TIMEOUT=Long_TIME_OUT;
+     33                    while(!SPI_GetFlagStatus(SPI_FLAG_TXE))
+     34                             {
+     35                                     if((TIMEOUT--) == 0) return SPI_FAIL;   //over time: Fail
+     36                             }
+     37                    SPI_SendData(Address);        //send register address
+     38                    
+     39                    
+     40                    if((Address&0x80)==0x80)           //SPI Write operation
+     41                      { 
+     42                             for(i=0;i<nBytes;i++)     
+     43                              {
+     44                                 
+     45                                TIMEOUT=Long_TIME_OUT;
+     46                                while(!SPI_GetFlagStatus(SPI_FLAG_TXE))  //waiting for finish sending data
+     47                                 {
+     48                                  if((TIMEOUT--) == 0) return SPI_FAIL;
+     49                                 }
+     50                                    SPI_SendData(buff[i]);        // send data to MAX31865
+     51                                    while(!(SPI_GetFlagStatus(SPI_FLAG_RXNE)));
+     52                                     SPI_ReceiveData();
+     53                               }
+     54                              while(!SPI_GetFlagStatus(SPI_FLAG_TXE))  //waiting for finish sending data
+     55          		    {
+     56          		     if((TIMEOUT--) == 0) return SPI_FAIL;
+     57          		    }					
+     58          				
+     59          	   }
+     60                    else
+     61                     {
+     62                          TIMEOUT=Long_TIME_OUT;
+     63                           while(!SPI_GetFlagStatus(SPI_FLAG_TXE))
+     64                               {
+     65                                  if((TIMEOUT--) == 0) return SPI_FAIL;
+     66                                 }
+     67                            while(!(SPI_GetFlagStatus(SPI_FLAG_RXNE)));			 
+     68                            SPI_ReceiveData();		              //read back data, this data is invalid
+     69                            for(i=0;i<nBytes;i++)
+     70                                {
+     71                                  SPI_SendData(0xff);         //Send this data only used to generate SPI CLK
+     72                                  TIMEOUT=Long_TIME_OUT;
+     73                                  while(!SPI_GetFlagStatus(SPI_FLAG_TXE))
+     74                                    {
+     75                                         if((TIMEOUT--) == 0) return SPI_FAIL;
+     76                                    }
+     77                                                                        
+     78                                  while(!(SPI_GetFlagStatus(SPI_FLAG_RXNE))); //waiting for receive
+     79                                                         
+     80                                  buff[i]=SPI_ReceiveData();                //readback data and stored in buff
+     81                                 }		
+     82                      }	
+     83             CS_HIGH;                          //pull cs high
+     84             return SPI_OK;*/				            //return status
+     85          }
+     86          void Inital_MAX31865(void)
+                      ^
+Error[Pa045]: function "Inital_MAX31865" has no prototype
+     87          {
+     88           #ifdef Auto_Mode
+     89               MAX31865_Config=0xD1;   //Auto Mode, 3-Wire, 50Hz
+     90               Data_Buffer[0]=MAX31865_Config;
+     91               if(SPI_Operation(0x80,Data_Buffer,1)==SPI_FAIL)
+     92                 {
+     93                  Operation_Fault=1;
+     94                  return;
+     95                 }   
+     96            #endif
+     97             Data_Buffer[0]=0xFF;
+     98             Data_Buffer[1]=0xFF;    //High Fault Threshold ,this value can be changed as needed
+     99             Data_Buffer[2]=0x00;
+    100             Data_Buffer[3]=0x00;    //Low Fault Threshold , this value can be changed as needed
+    101          	 if(SPI_Operation(0x83,Data_Buffer,4)==SPI_FAIL)
+    102          	   {
+    103          			 Operation_Fault=1;
+    104          			 return;
+    105          		 }	 	
+    106          }
+    107          void Fault_Detect(void)
+                      ^
+Error[Pa045]: function "Fault_Detect" has no prototype
+    108          {
+    109          }
+    110          
+    111          void DelayMS(unsigned int ms)
+                      ^
+Error[Pa045]: function "DelayMS" has no prototype
+    112          {
+    113            unsigned int i;
+    114            while(ms != 0)
+    115            {
+    116              for(i=0;i<1150;i++)
+    117              {
+    118              }
+    119              ms--;  
+    120            }     
+    121          }
+    122          main()
+    123          {
+    124          	Operation_Fault=0;
+    125          	
+    126          	SPI_Operation(0x00,Data_Buffer,8);   //no use, just used to test SPI communication
+    127          
+    128          	Inital_MAX31865();
+    129          	SPI_Operation(0x00,Data_Buffer,8);   //To check inital ok or not?
+    130          	while(Operation_Fault==0)            // if SPI communication is ok, it always run this code
+    131                  {                                   
+    132                       if(SPI_Operation(0x01,Data_Buffer,2)==SPI_FAIL) //read back RTD_MSB and RTD_LSB
+    133                       {
+    134                          Operation_Fault=1;
+    135                          return;
+                                       ^
+Error[Pe117]: non-void function "main" should return a value
+    136                        }
+    137                       RTD_H=Data_Buffer[0];
+    138                       RTD_L=Data_Buffer[1];
+    139                       if((RTD_L&0x01)==0x01)      //detect fault
+    140                       {
+    141                         Fault_Detect();                              
+    142                       }
+    143                       else
+    144                       {
+    145                         AD_Value=(((RTD_H<<8)|RTD_L)&0xFFFE)>>1;
+    146                         RTD_Resistor=((AD_Value*4000.0000)/32768.00);
+    147                         RTD_Temperature=(AD_Value/32.00)-256;
+    148                         if(RTD_Resistor>=(Rref/4))      //temperature>0
+    149                           {
+    150                            Corrected_Temperature=((sqrt(pow(0.0039083,2)+4*0.0000005775*(1-(RTD_Resistor/Rref)*4))-0.0039083)/(2*(0-0.0000005775)));
+                                                           ^
+Error[Pe223]: function "sqrt" declared implicitly
+
+                    Corrected_Temperature=((sqrt(pow(0.0039083,2)+4*0.0000005775*(1-(RTD_Resistor/Rref)*4))-0.0039083)/(2*(0-0.0000005775)));
+                                                 ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",150  Error[Pe223]: 
+          function "pow" declared implicitly
+    151                           }
+    152                          else
+    153                          {
+    154                            if(Rref==400)
+    155                            Corrected_Temperature=0-241.96+2.2163*RTD_Resistor+0.0028541*pow(RTD_Resistor,2)-0.000009912*pow(RTD_Resistor,3)+0.000000017052*pow(RTD_Resistor,4);							
+                                                                                                ^
+Error[Pe223]: function "pow" declared implicitly
+
+                    Corrected_Temperature=0-241.96+2.2163*RTD_Resistor+0.0028541*pow(RTD_Resistor,2)-0.000009912*pow(RTD_Resistor,3)+0.000000017052*pow(RTD_Resistor,4);							
+                                                                                                                 ^
+"C:\Users\Administrator\Desktop\MAX31865\MAX31865\MAX31865_c_code\main.c",155  Error[Pa045]: 
+          function "pow" has no prototype
+    156                          }	
+    157                       }				 
+    158              }
+    159          }
+    160          
+    161          
+
+Errors: 19
+Warnings: none

@@ -1,0 +1,1422 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         21/Apr/2017  09:26:44 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\Source\EndDevice.c                          #
+#    Command line       =  -f E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGB #
+#                          EE\ZIGBEE\CC2530DB\..\..\..\Tools\CC2530DB\f8wEnde #
+#                          v.cfg (-DCPU32MHZ -DROOT=__near_func               #
+#                          -DBLINK_LEDS) -f E:\淘宝店\PT100\下位机工程\Projec #
+#                          ts\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\Tools\CC #
+#                          2530DB\f8wConfig.cfg (-DSECURE=0                   #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF1                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\Source\EndDevice.c -D ZIGBEEPRO -D          #
+#                          NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D           #
+#                          xMT_SYS_FUNC -D xMT_ZDO_FUNC -D                    #
+#                          LCD_SUPPORTED=DEBUG -lC E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\EndDeviceE #
+#                          B-Pro\List\ -lA E:\淘宝店\PT100\下位机工程\Project #
+#                          s\zstack\ZIGBEE\ZIGBEE\CC2530DB\EndDeviceEB-Pro\Li #
+#                          st\ --diag_suppress Pe001,Pa010 -o                 #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\EndDeviceEB-Pro\Obj\ -e --debug    #
+#                          --core=plain --dptr=16,1 --data_model=large        #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\ -I        #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\SOURCE\ -I                      #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL #
+#                          UDE\ -I E:\淘宝店\PT100\下位机工程\Projects\zstack #
+#                          \ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\ #
+#                          HAL\TARGET\CC2530EB\ -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\OSAL\MCU\CCSOC\ -I                 #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INC #
+#                          LUDE\ -I E:\淘宝店\PT100\下位机工程\Projects\zstac #
+#                          k\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I E:\淘宝店\PT100\下位机工程\Projects\ #
+#                          zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPO #
+#                          NENTS\STACK\NWK\ -I E:\淘宝店\PT100\下位机工程\Pro #
+#                          jects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\STACK\SEC\ -I                          #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SA #
+#                          PI\ -I E:\淘宝店\PT100\下位机工程\Projects\zstack\ #
+#                          ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\S #
+#                          TACK\SYS\ -I E:\淘宝店\PT100\下位机工程\Projects\z #
+#                          stack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPON #
+#                          ENTS\STACK\ZDO\ -I E:\淘宝店\PT100\下位机工程\Proj #
+#                          ects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\ZMAC\F8W\ -I E:\淘宝店\PT100\下位机工程 #
+#                          \Projects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\ZMAC\ -I                           #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES #
+#                          \SADDR\ -I E:\淘宝店\PT100\下位机工程\Projects\zst #
+#                          ack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONEN #
+#                          TS\SERVICES\SDATA\ -I E:\淘宝店\PT100\下位机工程\P #
+#                          rojects\zstack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\ #
+#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH #
+#                          _LEVEL\ -I E:\淘宝店\PT100\下位机工程\Projects\zst #
+#                          ack\ZIGBEE\ZIGBEE\CC2530DB\..\..\..\..\..\COMPONEN #
+#                          TS\MAC\LOW_LEVEL\srf04\ -I                         #
+#                          E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ #
+#                          LEVEL\srf04\SINGLE_CHIP\ -Ohz --require_prototypes #
+#    List file          =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\EndDeviceEB-Pro\List\EndDevice.lst #
+#    Object file        =  E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ #
+#                          ZIGBEE\CC2530DB\EndDeviceEB-Pro\Obj\EndDevice.r51  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\淘宝店\PT100\下位机工程\Projects\zstack\ZIGBEE\ZIGBEE\Source\EndDevice.c
+      1          /**************************************************************************************************
+      2            Filename:       SampleApp.c
+      3            Revised:        $Date: 2009-03-18 15:56:27 -0700 (Wed, 18 Mar 2009) $
+      4            Revision:       $Revision: 19453 $
+      5          
+      6            Description:    Sample Application (no Profile).
+      7          
+      8          **************************************************************************************************/
+      9          
+     10          #include "OSAL.h"
+     11          #include "ZGlobals.h"
+     12          #include "AF.h"
+     13          #include "aps_groups.h"
+     14          #include "ZDApp.h"
+     15          #include <string.h>
+     16          #include <stdio.h>
+     17          #include "SampleApp.h"
+     18          #include "SampleAppHw.h"
+     19          
+     20          #include "OnBoard.h"
+
+   \                                 In  segment SFR_AN, at 0x88
+   \   union <unnamed> volatile __sfr _A_TCON
+   \                     _A_TCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf1
+   \   unsigned char volatile __sfr PERCFG
+   \                     PERCFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf8
+   \   union <unnamed> volatile __sfr _A_U1CSR
+   \                     _A_U1CSR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf9
+   \   unsigned char volatile __sfr U1DBUF
+   \                     U1DBUF:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfa
+   \   unsigned char volatile __sfr U1BAUD
+   \                     U1BAUD:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfc
+   \   unsigned char volatile __sfr U1GCR
+   \                     U1GCR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+     21          
+     22          /* HAL */
+     23          #include "hal_lcd.h"
+     24          #include "hal_led.h"
+     25          #include "hal_key.h"
+     26          #include "MT_UART.h"
+     27          #include "MT_APP.h"
+     28          #include "MT.h"
+     29          #include "math.h"
+     30          
+     31          
+     32          
+     33          //define interface of MAX31865
+     34          #define CS_HIGH   P1_4 = 1;         //define PD.2 as CS 
+     35          #define CS_LOW    P1_4 = 0;  
+     36          //
+     37          #define Long_TIME_OUT  (uint32)0xFFFFF;
+     38          #define SPI_FAIL       1
+     39          #define SPI_OK         0
+     40          #define Rref           400         //if using PT100, change this from 4000 to 400
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     41          uint32 TIMEOUT;                  //define SPI communication timeout 
+   \                     TIMEOUT:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     42          uint8  Data_Buffer[10];           //define data storage
+   \                     Data_Buffer:
+   \   000000                DS 10
+   \   00000A                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     43          uint8 MAX31865_Config;           //the value is MAX31865 configuration register
+   \                     MAX31865_Config:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     44          uint8 MAX31855_Fault_Status;     //the value is Fault Status register 
+   \                     MAX31855_Fault_Status:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     45          uint8 Operation_Fault;          //define SPI status, if =1 SPI error.
+   \                     Operation_Fault:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     46          float AD_Value;                   //store the value of RTD MSB and RTD LSB register
+   \                     AD_Value:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     47          uint8 RTD_H,RTD_L;
+   \                     RTD_H:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     RTD_L:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     48          float RTD_Resistor;            //RTD resistor value based on RTD_MSB and RTD_LSB register
+   \                     RTD_Resistor:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     49          float RTD_Temperature;         // Temperature value based on direct read out data
+   \                     RTD_Temperature:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     50          float Corrected_Temperature;   //Temperature after correction
+   \                     Corrected_Temperature:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     51          uint8 str_t[12];
+   \                     str_t:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+     52          #define Auto_Mode;    
+                                  ^
+Warning[Pe1649]: white space is required between the macro name "Auto_Mode"
+          and its replacement text
+     53          bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes);
+     54          void Inital_MAX31865(void);
+     55          void delayMS(unsigned int ms);
+     56          void SPI_SendData(uint8 data); 
+     57          uint8 SPI_ReceiveData(void); 
+     58          //Used to Read and Write MAX31865
+     59          //Register_Address: MAX31865 Register address, buff: stored the write data or read back data, nBytes: read or write Byte Number.
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     60          bool SPI_Operation(uint8 Register_Address,uint8 *buff,uint8 nBytes)
+   \                     SPI_Operation:
+     61          {  
+   \   000000   74EE         MOV     A,#-0x12
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 18
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+   \   000007   8A..         MOV     ?V0 + 8,R2
+   \   000009   8B..         MOV     ?V0 + 9,R3
+   \   00000B   EC           MOV     A,R4
+   \   00000C   FF           MOV     R7,A
+     62            uint8 Address,i;
+     63            Address=Register_Address;
+     64            CS_LOW;  //Pull CS Low
+   \   00000D   C294         CLR     0x90.4
+     65            SPI_ReceiveData();    
+   \   00000F   E5F9         MOV     A,0xf9
+     66            TIMEOUT=Long_TIME_OUT; 
+   \   000011   90....       MOV     DPTR,#__Constant_fffff
+   \   000014   12....       LCALL   ?XLOAD_R2345
+   \   000017   90....       MOV     DPTR,#TIMEOUT
+   \   00001A   12....       LCALL   ?XSTORE_R2345
+     67            SPI_SendData(Address);        //send register address   
+   \   00001D   8EF9         MOV     0xf9,R6
+     68            while (!(U1CSR&0x02)) //waiting for finish sending data
+   \                     ??SPI_Operation_0:
+   \   00001F   A2F9         MOV     C,0xf8.1
+   \   000021   4033         JC      ??SPI_Operation_1
+     69                         {
+     70                          if((TIMEOUT--) == 0) return SPI_FAIL;
+   \   000023   90....       MOV     DPTR,#TIMEOUT
+   \   000026   78..         MOV     R0,#?V0 + 4
+   \   000028   12....       LCALL   ?L_MOV_X
+   \   00002B   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00002E   85....       MOV     ?V0 + 1,?V0 + 5
+   \   000031   85....       MOV     ?V0 + 2,?V0 + 6
+   \   000034   85....       MOV     ?V0 + 3,?V0 + 7
+   \   000037   90....       MOV     DPTR,#__Constant_ffffffff
+   \   00003A   78..         MOV     R0,#?V0 + 0
+   \   00003C   12....       LCALL   ?L_ADD_X
+   \   00003F   90....       MOV     DPTR,#TIMEOUT
+   \   000042   78..         MOV     R0,#?V0 + 0
+   \   000044   12....       LCALL   ?L_MOV_TO_X
+   \   000047   E5..         MOV     A,?V0 + 4
+   \   000049   45..         ORL     A,?V0 + 5
+   \   00004B   45..         ORL     A,?V0 + 6
+   \   00004D   45..         ORL     A,?V0 + 7
+   \   00004F   70CE         JNZ     ??SPI_Operation_0
+   \                     ??SPI_Operation_2:
+   \   000051   7901         MOV     R1,#0x1
+   \   000053   02....       LJMP    ??SPI_Operation_3 & 0xFFFF
+     71                         }
+     72                         U1CSR &= 0xFD; //复位
+   \                     ??SPI_Operation_1:
+   \   000056   C2F9         CLR     0xf8.1
+     73            if((Address==0x80)||(Address==0x83))           //SPI Write operation
+   \   000058   7480         MOV     A,#-0x80
+   \   00005A   6E           XRL     A,R6
+   \   00005B   6005         JZ      ??SPI_Operation_4
+   \   00005D   7483         MOV     A,#-0x7d
+   \   00005F   6E           XRL     A,R6
+   \   000060   7027         JNZ     ??SPI_Operation_5
+     74              { 
+     75                     for(i=0;i<nBytes;i++)     
+   \                     ??SPI_Operation_4:
+   \   000062   7900         MOV     R1,#0x0
+   \                     ??SPI_Operation_6:
+   \   000064   E9           MOV     A,R1
+   \   000065   C3           CLR     C
+   \   000066   9F           SUBB    A,R7
+   \   000067   4003         JC      $+5
+   \   000069   02....       LJMP    ??SPI_Operation_7 & 0xFFFF
+     76                      {              
+     77                         TIMEOUT=Long_TIME_OUT;            
+   \   00006C   90....       MOV     DPTR,#__Constant_fffff
+   \   00006F   12....       LCALL   ?XLOAD_R2345
+   \   000072   90....       MOV     DPTR,#TIMEOUT
+   \   000075   12....       LCALL   ?XSTORE_R2345
+     78                         SPI_SendData(buff[i]);        // send data to MAX31865
+   \   000078   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00007B   E0           MOVX    A,@DPTR
+   \   00007C   F5F9         MOV     0xf9,A
+     79                         while (!(U1CSR&0x02));
+   \                     ??SPI_Operation_8:
+   \   00007E   A2F9         MOV     C,0xf8.1
+   \   000080   50FC         JNC     ??SPI_Operation_8
+     80                         U1CSR &= 0xFD; //复位
+   \   000082   C2F9         CLR     0xf8.1
+     81                         SPI_ReceiveData();
+   \   000084   E5F9         MOV     A,0xf9
+     82                       }          	                       
+   \   000086   09           INC     R1
+   \   000087   80DB         SJMP    ??SPI_Operation_6
+     83             }
+     84            else
+     85             {
+     86                  TIMEOUT=Long_TIME_OUT;
+   \                     ??SPI_Operation_5:
+   \   000089   90....       MOV     DPTR,#__Constant_fffff
+   \   00008C   12....       LCALL   ?XLOAD_R2345
+   \   00008F   90....       MOV     DPTR,#TIMEOUT
+   \   000092   12....       LCALL   ?XSTORE_R2345
+     87                 
+     88                    SPI_ReceiveData();		              //read back data, this data is invalid
+   \   000095   E5F9         MOV     A,0xf9
+     89                    for(i=0;i<nBytes;i++)
+   \   000097   7900         MOV     R1,#0x0
+   \   000099   8011         SJMP    ??SPI_Operation_9
+     90                        {
+     91                          SPI_SendData(0xff);         //Send this data only used to generate SPI CLK
+     92                          TIMEOUT=Long_TIME_OUT;
+     93                          while (!(U1CSR&0x02))
+     94                            {
+     95                                 if((TIMEOUT--) == 0) return SPI_FAIL;
+     96                            }
+     97                                                                
+     98                          while (!(U1CSR&0x02)); //waiting for receive  
+   \                     ??SPI_Operation_10:
+   \   00009B   A2F9         MOV     C,0xf8.1
+   \   00009D   50FC         JNC     ??SPI_Operation_10
+     99                          U1CSR &= 0xFD; //复位
+   \   00009F   C2F9         CLR     0xf8.1
+    100                          buff[i]=SPI_ReceiveData();                //readback data and stored in buff
+   \   0000A1   E5F9         MOV     A,0xf9
+   \   0000A3   C0E0         PUSH    A
+   \   0000A5   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000A8   D0E0         POP     A
+   \   0000AA   F0           MOVX    @DPTR,A
+   \   0000AB   09           INC     R1
+   \                     ??SPI_Operation_9:
+   \   0000AC   E9           MOV     A,R1
+   \   0000AD   C3           CLR     C
+   \   0000AE   9F           SUBB    A,R7
+   \   0000AF   5044         JNC     ??SPI_Operation_7
+   \   0000B1   75F9FF       MOV     0xf9,#-0x1
+   \   0000B4   90....       MOV     DPTR,#__Constant_fffff
+   \   0000B7   12....       LCALL   ?XLOAD_R2345
+   \   0000BA   90....       MOV     DPTR,#TIMEOUT
+   \   0000BD   12....       LCALL   ?XSTORE_R2345
+   \                     ??SPI_Operation_11:
+   \   0000C0   A2F9         MOV     C,0xf8.1
+   \   0000C2   40D7         JC      ??SPI_Operation_10
+   \   0000C4   90....       MOV     DPTR,#TIMEOUT
+   \   0000C7   78..         MOV     R0,#?V0 + 4
+   \   0000C9   12....       LCALL   ?L_MOV_X
+   \   0000CC   85....       MOV     ?V0 + 0,?V0 + 4
+   \   0000CF   85....       MOV     ?V0 + 1,?V0 + 5
+   \   0000D2   85....       MOV     ?V0 + 2,?V0 + 6
+   \   0000D5   85....       MOV     ?V0 + 3,?V0 + 7
+   \   0000D8   90....       MOV     DPTR,#__Constant_ffffffff
+   \   0000DB   78..         MOV     R0,#?V0 + 0
+   \   0000DD   12....       LCALL   ?L_ADD_X
+   \   0000E0   90....       MOV     DPTR,#TIMEOUT
+   \   0000E3   78..         MOV     R0,#?V0 + 0
+   \   0000E5   12....       LCALL   ?L_MOV_TO_X
+   \   0000E8   E5..         MOV     A,?V0 + 4
+   \   0000EA   45..         ORL     A,?V0 + 5
+   \   0000EC   45..         ORL     A,?V0 + 6
+   \   0000EE   45..         ORL     A,?V0 + 7
+   \   0000F0   70CE         JNZ     ??SPI_Operation_11
+   \   0000F2   02....       LJMP    ??SPI_Operation_2 & 0xFFFF
+    101                         }		
+    102              }	
+    103             CS_HIGH;                          //pull cs high
+   \                     ??SPI_Operation_7:
+   \   0000F5   D294         SETB    0x90.4
+    104             return SPI_OK;			            //return status
+   \   0000F7   7900         MOV     R1,#0x0
+   \                     ??SPI_Operation_3:
+   \   0000F9   7F0A         MOV     R7,#0xa
+   \   0000FB   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   0000FE                REQUIRE _A_P1
+   \   0000FE                REQUIRE _A_U1CSR
+   \   0000FE                REQUIRE U1DBUF
+    105          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   89..         MOV     ?V0 + 0,R1
+   \   000002   E5..         MOV     A,?V0 + 8
+   \   000004   25..         ADD     A,?V0 + 0
+   \   000006   F582         MOV     DPL,A
+   \   000008   E5..         MOV     A,?V0 + 9
+   \   00000A   3400         ADDC    A,#0x0
+   \   00000C   F583         MOV     DPH,A
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    106          void Inital_MAX31865(void)
+   \                     Inital_MAX31865:
+    107          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    108             MAX31865_Config=0xD1;   //Auto Mode, 3-Wire, 50Hz
+   \   000004   90....       MOV     DPTR,#MAX31865_Config
+   \   000007   74D1         MOV     A,#-0x2f
+   \   000009   F0           MOVX    @DPTR,A
+    109             Data_Buffer[0]=MAX31865_Config;
+   \   00000A   90....       MOV     DPTR,#Data_Buffer
+   \   00000D   F0           MOVX    @DPTR,A
+    110             if(SPI_Operation(0x80,Data_Buffer,1)==SPI_FAIL)//MAX31865驱动 向MAX31865寄存器中写入数据来配置其工作模式
+   \   00000E                ; Setup parameters for call to function SPI_Operation
+   \   00000E   7C01         MOV     R4,#0x1
+   \   000010   7A..         MOV     R2,#Data_Buffer & 0xff
+   \   000012   7B..         MOV     R3,#(Data_Buffer >> 8) & 0xff
+   \   000014   7980         MOV     R1,#-0x80
+   \   000016   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000019   7008         JNZ     ??Inital_MAX31865_0
+    111               {
+    112                Operation_Fault=1;
+   \                     ??Inital_MAX31865_1:
+   \   00001B   90....       MOV     DPTR,#Operation_Fault
+   \   00001E   7401         MOV     A,#0x1
+   \   000020   F0           MOVX    @DPTR,A
+    113                return;
+   \   000021   801A         SJMP    ??Inital_MAX31865_2
+    114               }   
+    115             Data_Buffer[0]=0xFF;
+   \                     ??Inital_MAX31865_0:
+   \   000023   90....       MOV     DPTR,#Data_Buffer
+   \   000026   74FF         MOV     A,#-0x1
+   \   000028   F0           MOVX    @DPTR,A
+    116             Data_Buffer[1]=0xFF;    //High Fault Threshold ,this value can be changed as needed
+   \   000029   A3           INC     DPTR
+   \   00002A   F0           MOVX    @DPTR,A
+    117             Data_Buffer[2]=0x00;
+   \   00002B   A3           INC     DPTR
+   \   00002C   E4           CLR     A
+   \   00002D   F0           MOVX    @DPTR,A
+    118             Data_Buffer[3]=0x00;    //Low Fault Threshold , this value can be changed as needed
+   \   00002E   A3           INC     DPTR
+   \   00002F   F0           MOVX    @DPTR,A
+    119             if(SPI_Operation(0x83,Data_Buffer,4)==SPI_FAIL)
+   \   000030                ; Setup parameters for call to function SPI_Operation
+   \   000030   7C04         MOV     R4,#0x4
+   \   000032   7A..         MOV     R2,#Data_Buffer & 0xff
+   \   000034   7B..         MOV     R3,#(Data_Buffer >> 8) & 0xff
+   \   000036   7983         MOV     R1,#-0x7d
+   \   000038   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00003B   60DE         JZ      ??Inital_MAX31865_1
+   \                     ??Inital_MAX31865_2:
+   \   00003D   D083         POP     DPH
+   \   00003F   D082         POP     DPL
+   \   000041   02....       LJMP    ?BRET
+    120               {
+    121                             Operation_Fault=1;
+    122                             return;
+    123                     }	 	
+    124          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ??SPI_Operation?relay
+   \   000003   E9           MOV     A,R1
+   \   000004   6401         XRL     A,#0x1
+   \   000006   22           RET
+    125          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    126          void delayMS(unsigned int ms)
+   \                     delayMS:
+    127          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   800E         SJMP    ??delayMS_0
+    128            unsigned int i;
+                                ^
+Warning[Pe177]: variable "i" was declared but never referenced
+    129            while(ms != 0)
+    130            {  
+    131             MicroWait(1000);  
+   \                     ??delayMS_1:
+   \   00000A                ; Setup parameters for call to function Onboard_wait
+   \   00000A   7AE8         MOV     R2,#-0x18
+   \   00000C   7B03         MOV     R3,#0x3
+   \   00000E   12....       LCALL   ??Onboard_wait?relay
+    132              ms--;  
+   \   000011   EE           MOV     A,R6
+   \   000012   24FF         ADD     A,#-0x1
+   \   000014   1E           DEC     R6
+   \   000015   EF           MOV     A,R7
+   \   000016   34FF         ADDC    A,#-0x1
+   \                     ??delayMS_0:
+   \   000018   FF           MOV     R7,A
+    133            }     
+   \   000019   EE           MOV     A,R6
+   \   00001A   4F           ORL     A,R7
+   \   00001B   70ED         JNZ     ??delayMS_1
+    134          }
+   \   00001D                REQUIRE ?Subroutine0
+   \   00001D                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    135          
+    136          // This list should be filled with Application specific Cluster IDs.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    137          const cId_t SampleApp_ClusterList[ENDDEVICE_MAX_CLUSTERS] =
+   \                     SampleApp_ClusterList:
+   \   000000   0100         DW 1
+    138          {
+    139            ENDDEVIC1_MSG //Modified by user,区分每个终端的簇列表，第x个终端，则更改为ENDDEVICx_MSG
+    140          };              //注意，事先要在SampleApp.h中定义ENDDEVICx_MSG
+    141          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    142          const SimpleDescriptionFormat_t SampleApp_SimpleDesc =
+   \                     SampleApp_SimpleDesc:
+   \   000000   14           DB 20
+   \   000001   080F         DW 3848
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW SampleApp_ClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW SampleApp_ClusterList
+    143          {
+    144            SAMPLEAPP_ENDPOINT,             
+    145            SAMPLEAPP_PROFID,              
+    146            SAMPLEAPP_DEVICEID,             
+    147            SAMPLEAPP_FLAGS,                
+    148            SAMPLEAPP_DEVICE_VERSION,       
+    149            ENDDEVICE_MAX_CLUSTERS,          
+    150            (cId_t *)SampleApp_ClusterList,  
+    151            ENDDEVICE_MAX_CLUSTERS,         
+    152            (cId_t *)SampleApp_ClusterList   
+    153          };
+    154          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    155          endPointDesc_t SampleApp_epDesc;
+   \                     SampleApp_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+    156          
+    157          
+    158          /*********************************************************************
+    159           * LOCAL VARIABLES
+    160           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    161          uint8 SampleApp_TaskID;  
+   \                     SampleApp_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    162                                    
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    163          devStates_t SampleApp_NwkState;
+   \                     SampleApp_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    164          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    165          uint8 SampleApp_TransID;  
+   \                     SampleApp_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    166          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    167          afAddrType_t SampleApp_P2P_DstAddr;      //点播地址，即终端向协调器发送数据地址
+   \                     SampleApp_P2P_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    168          uint8 ok;
+   \                     ok:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    169          
+    170          /*********************************************************************
+    171           * LOCAL FUNCTIONS
+    172           */
+    173          void spi_master(void);
+    174          uint8 SampleApp_Send_PERIDOIC_CMD(void);     //定时串口发送函数
+    175          
+    176          /*********************************************************************
+    177           * @fn      SampleApp_Init
+    178           *
+    179           * @brief   Initialization function for the Generic App Task.
+    180           *          This is called during initialization and should contain
+    181           *          any application specific initialization (ie. hardware
+    182           *          initialization/setup, table initialization, power up
+    183           *          notificaiton ... ).
+    184           *
+    185           * @param   task_id - the ID assigned by OSAL.  This ID should be
+    186           *                    used to send messages and set timers.
+    187           *
+    188           * @return  none
+    189           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    190          void SampleApp_Init( uint8 task_id )
+   \                     SampleApp_Init:
+    191          { 
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    192            SampleApp_TaskID = task_id;
+   \   000006   90....       MOV     DPTR,#SampleApp_TaskID
+   \   000009   F0           MOVX    @DPTR,A
+    193            SampleApp_NwkState = DEV_INIT;
+   \   00000A   90....       MOV     DPTR,#SampleApp_NwkState
+   \   00000D   7401         MOV     A,#0x1
+   \   00000F   F0           MOVX    @DPTR,A
+    194            SampleApp_TransID = 0;
+   \   000010   90....       MOV     DPTR,#SampleApp_TransID
+   \   000013   E4           CLR     A
+   \   000014   F0           MOVX    @DPTR,A
+    195            spi_master();  //SPI初始化
+   \   000015                ; Setup parameters for call to function spi_master
+   \   000015   12....       LCALL   ??spi_master?relay
+    196            Operation_Fault=0;
+   \   000018   90....       MOV     DPTR,#Operation_Fault
+   \   00001B   E4           CLR     A
+   \   00001C   F0           MOVX    @DPTR,A
+    197            ok = SPI_Operation(0x00,Data_Buffer,8);   //no use, just used to test SPI communication
+   \   00001D                ; Setup parameters for call to function SPI_Operation
+   \   00001D   7C08         MOV     R4,#0x8
+   \   00001F   7A..         MOV     R2,#Data_Buffer & 0xff
+   \   000021   7B..         MOV     R3,#(Data_Buffer >> 8) & 0xff
+   \   000023   F9           MOV     R1,A
+   \   000024   12....       LCALL   ??SPI_Operation?relay
+   \   000027   E9           MOV     A,R1
+   \   000028   90....       MOV     DPTR,#ok
+   \   00002B   F0           MOVX    @DPTR,A
+    198            Inital_MAX31865();  //初始化MAX31865   MAX31865驱动
+   \   00002C                ; Setup parameters for call to function Inital_MAX31865
+   \   00002C   12....       LCALL   ??Inital_MAX31865?relay
+    199            SPI_Operation(0x00,Data_Buffer,8);   //To check inital ok or not?MAX31865驱动， 读MAX31865
+   \   00002F                ; Setup parameters for call to function SPI_Operation
+   \   00002F   7C08         MOV     R4,#0x8
+   \   000031   7A..         MOV     R2,#Data_Buffer & 0xff
+   \   000033   7B..         MOV     R3,#(Data_Buffer >> 8) & 0xff
+   \   000035   7900         MOV     R1,#0x0
+   \   000037   12....       LCALL   ??SPI_Operation?relay
+    200          
+    201            SampleApp_P2P_DstAddr.addrMode = (afAddrMode_t)Addr16Bit; //点播地址初始化
+   \   00003A   90....       MOV     DPTR,#SampleApp_P2P_DstAddr + 8
+   \   00003D   7402         MOV     A,#0x2
+   \   00003F   F0           MOVX    @DPTR,A
+    202            SampleApp_P2P_DstAddr.endPoint = SAMPLEAPP_ENDPOINT; 
+   \   000040   A3           INC     DPTR
+   \   000041   7414         MOV     A,#0x14
+   \   000043   F0           MOVX    @DPTR,A
+    203            SampleApp_P2P_DstAddr.addr.shortAddr = 0x0000;            //发给协调器，协调器地址固定为0X0000，因此无需改动
+   \   000044   90....       MOV     DPTR,#SampleApp_P2P_DstAddr
+   \   000047   E4           CLR     A
+   \   000048   F0           MOVX    @DPTR,A
+   \   000049   A3           INC     DPTR
+   \   00004A   F0           MOVX    @DPTR,A
+    204          
+    205          
+    206            SampleApp_epDesc.endPoint = SAMPLEAPP_ENDPOINT;
+   \   00004B   90....       MOV     DPTR,#SampleApp_epDesc
+   \   00004E   7414         MOV     A,#0x14
+   \   000050   F0           MOVX    @DPTR,A
+    207            SampleApp_epDesc.task_id = &SampleApp_TaskID;
+   \   000051   A3           INC     DPTR
+   \   000052   74..         MOV     A,#SampleApp_TaskID & 0xff
+   \   000054   F0           MOVX    @DPTR,A
+   \   000055   A3           INC     DPTR
+   \   000056   74..         MOV     A,#(SampleApp_TaskID >> 8) & 0xff
+   \   000058   F0           MOVX    @DPTR,A
+    208            SampleApp_epDesc.simpleDesc
+    209                      = (SimpleDescriptionFormat_t *)&SampleApp_SimpleDesc;
+   \   000059   A3           INC     DPTR
+   \   00005A   74..         MOV     A,#SampleApp_SimpleDesc & 0xff
+   \   00005C   F0           MOVX    @DPTR,A
+   \   00005D   A3           INC     DPTR
+   \   00005E   74..         MOV     A,#(SampleApp_SimpleDesc >> 8) & 0xff
+   \   000060   F0           MOVX    @DPTR,A
+    210            SampleApp_epDesc.latencyReq = noLatencyReqs;
+   \   000061   A3           INC     DPTR
+   \   000062   E4           CLR     A
+   \   000063   F0           MOVX    @DPTR,A
+    211           
+    212            afRegister( &SampleApp_epDesc );
+   \   000064                ; Setup parameters for call to function afRegister
+   \   000064   7A..         MOV     R2,#SampleApp_epDesc & 0xff
+   \   000066   7B..         MOV     R3,#(SampleApp_epDesc >> 8) & 0xff
+   \   000068   12....       LCALL   ??afRegister?relay
+    213           
+    214            RegisterForKeys( SampleApp_TaskID );
+   \   00006B                ; Setup parameters for call to function RegisterForKeys
+   \   00006B   90....       MOV     DPTR,#SampleApp_TaskID
+   \   00006E   E0           MOVX    A,@DPTR
+   \   00006F   F9           MOV     R1,A
+   \   000070   12....       LCALL   ??RegisterForKeys?relay
+    215          
+    216            
+    217          }
+   \   000073   80..         SJMP    ?Subroutine0
+    218          
+    219          /*********************************************************************
+    220           * @fn      SampleApp_ProcessEvent
+    221           *
+    222           * @brief   Generic Application Task event processor.  This function
+    223           *          is called to process all events for the task.  Events
+    224           *          include timers, messages and any other user defined events.
+    225           *
+    226           * @param   task_id  - The OSAL assigned task ID.
+    227           * @param   events - events to process.  This is a bit map and can
+    228           *                   contain more than one event.
+    229           *
+    230           * @return  none  osal_start_timerEx( SampleApp_TaskID, PERIDOIC_CMD, PERIODIC_CMD_TIME );
+    231           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    232          uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+   \                     SampleApp_ProcessEvent:
+    233          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    234            afIncomingMSGPacket_t *MSGpkt;
+    235            (void)task_id;  // Intentionally unreferenced parameter
+    236          
+    237            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   6048         JZ      ??SampleApp_ProcessEvent_0
+    238            {
+    239              MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
+   \   00000D                ; Setup parameters for call to function osal_msg_receive
+   \   00000D   802C         SJMP    ??SampleApp_ProcessEvent_1
+    240              while ( MSGpkt )
+    241              {
+    242                switch ( MSGpkt->hdr.event )
+   \                     ??SampleApp_ProcessEvent_2:
+   \   00000F   85..82       MOV     DPL,?V0 + 0
+   \   000012   85..83       MOV     DPH,?V0 + 1
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   64D1         XRL     A,#0xd1
+   \   000018   701A         JNZ     ??SampleApp_ProcessEvent_3
+    243                {
+    244                  // Received when a key is pressed
+    245                  case KEY_CHANGE:
+    246                   
+    247                    break;
+    248          
+    249                  // Received when a messages is received (OTA) for this endpoint
+    250                  case AF_INCOMING_MSG_CMD:
+    251                    
+    252                    break;
+    253          
+    254                  // Received whenever the device changes state in the network
+    255                  case ZDO_STATE_CHANGE:
+    256                    SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+   \   00001A   A3           INC     DPTR
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   90....       MOV     DPTR,#SampleApp_NwkState
+   \   00001F   F0           MOVX    @DPTR,A
+    257                    if ( (SampleApp_NwkState == DEV_END_DEVICE) )
+   \   000020   6406         XRL     A,#0x6
+   \   000022   7010         JNZ     ??SampleApp_ProcessEvent_3
+    258                    {
+    259                     //只有终端设备开启，2秒温度换算任务
+    260                     osal_start_timerEx( SampleApp_TaskID, PERIDOIC_CMD, PERIODIC_CMD_TIME );
+   \   000024                ; Setup parameters for call to function osal_start_timerEx
+   \   000024   7CD0         MOV     R4,#-0x30
+   \   000026   7D07         MOV     R5,#0x7
+   \   000028   7A01         MOV     R2,#0x1
+   \   00002A   7B00         MOV     R3,#0x0
+   \   00002C   90....       MOV     DPTR,#SampleApp_TaskID
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   F9           MOV     R1,A
+   \   000031   12....       LCALL   ??osal_start_timerEx?relay
+    261                    }
+    262                  
+    263                    break;
+    264          
+    265                  default:
+    266                    break;
+    267                }
+    268          
+    269                // Release the memory
+    270                osal_msg_deallocate( (uint8 *)MSGpkt );
+   \                     ??SampleApp_ProcessEvent_3:
+   \   000034                ; Setup parameters for call to function osal_msg_deallocate
+   \   000034   AA..         MOV     R2,?V0 + 0
+   \   000036   AB..         MOV     R3,?V0 + 1
+   \   000038   12....       LCALL   ??osal_msg_deallocate?relay
+    271          
+    272                // Next - if one is available
+    273                MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
+   \   00003B                ; Setup parameters for call to function osal_msg_receive
+   \                     ??SampleApp_ProcessEvent_1:
+   \   00003B   90....       MOV     DPTR,#SampleApp_TaskID
+   \   00003E   E0           MOVX    A,@DPTR
+   \   00003F   F9           MOV     R1,A
+   \   000040   12....       LCALL   ??osal_msg_receive?relay
+   \   000043   8A..         MOV     ?V0 + 0,R2
+   \   000045   8B..         MOV     ?V0 + 1,R3
+    274              }
+   \   000047   E5..         MOV     A,?V0 + 0
+   \   000049   45..         ORL     A,?V0 + 1
+   \   00004B   70C2         JNZ     ??SampleApp_ProcessEvent_2
+    275          
+    276              // return unprocessed events
+    277              return (events ^ SYS_EVENT_MSG);
+   \   00004D   EE           MOV     A,R6
+   \   00004E   FA           MOV     R2,A
+   \   00004F   EF           MOV     A,R7
+   \   000050   6480         XRL     A,#0x80
+   \   000052   FB           MOV     R3,A
+   \   000053   801C         SJMP    ??SampleApp_ProcessEvent_4
+    278            }
+    279          
+    280            if ( events & PERIDOIC_CMD )//2S定时时间到，调用函数SampleApp_Send_PERIDOIC_CMD计算温度值
+   \                     ??SampleApp_ProcessEvent_0:
+   \   000055   EE           MOV     A,R6
+   \   000056   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000058   5013         JNC     ??SampleApp_ProcessEvent_5
+    281              {
+    282                SampleApp_Send_PERIDOIC_CMD();
+   \   00005A                ; Setup parameters for call to function SampleApp_Send_PERIDOIC_CMD
+   \   00005A   12....       LCALL   ??SampleApp_Send_PERIDOIC_CMD?relay
+    283                osal_start_timerEx( SampleApp_TaskID, PERIDOIC_CMD, PERIODIC_CMD_TIME );
+   \   00005D                ; Setup parameters for call to function osal_start_timerEx
+   \   00005D   7CD0         MOV     R4,#-0x30
+   \   00005F   7D07         MOV     R5,#0x7
+   \   000061   7A01         MOV     R2,#0x1
+   \   000063   7B00         MOV     R3,#0x0
+   \   000065   90....       MOV     DPTR,#SampleApp_TaskID
+   \   000068   E0           MOVX    A,@DPTR
+   \   000069   F9           MOV     R1,A
+   \   00006A   12....       LCALL   ??osal_start_timerEx?relay
+    284             //启动定时事件，周期为PERIODIC_CMD_TIME
+    285              }
+    286            return 0;
+   \                     ??SampleApp_ProcessEvent_5:
+   \   00006D   7A00         MOV     R2,#0x0
+   \   00006F   7B00         MOV     R3,#0x0
+   \                     ??SampleApp_ProcessEvent_4:
+   \   000071   7F04         MOV     R7,#0x4
+   \   000073   02....       LJMP    ?BANKED_LEAVE_XDATA
+    287          }
+    288          
+    289           
+    290          /*********************************************************************
+    291          *********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    292          uint8 SampleApp_Send_PERIDOIC_CMD(void)//计算温度值
+   \                     SampleApp_Send_PERIDOIC_CMD:
+    293          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    294            if(Operation_Fault==0)            // if SPI communication is ok, it always run this code
+   \   000005   90....       MOV     DPTR,#Operation_Fault
+   \   000008   E0           MOVX    A,@DPTR
+   \   000009   6003         JZ      $+5
+   \   00000B   02....       LJMP    ??SampleApp_Send_PERIDOIC_CMD_0 & 0xFFFF
+    295              {                                   
+    296                       if(SPI_Operation(0x01,Data_Buffer,2)==SPI_FAIL) //read back RTD_MSB and RTD_LSB
+   \   00000E                ; Setup parameters for call to function SPI_Operation
+   \   00000E   7C02         MOV     R4,#0x2
+   \   000010   7A..         MOV     R2,#Data_Buffer & 0xff
+   \   000012   7B..         MOV     R3,#(Data_Buffer >> 8) & 0xff
+   \   000014   7901         MOV     R1,#0x1
+   \   000016   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000019   700A         JNZ     ??SampleApp_Send_PERIDOIC_CMD_1
+    297                       {
+    298                          Operation_Fault=1;
+   \   00001B   90....       MOV     DPTR,#Operation_Fault
+   \   00001E   7401         MOV     A,#0x1
+   \   000020   F0           MOVX    @DPTR,A
+    299                          return 1;
+   \   000021   F9           MOV     R1,A
+   \   000022   02....       LJMP    ??SampleApp_Send_PERIDOIC_CMD_2 & 0xFFFF
+    300                        }
+    301                       RTD_H=Data_Buffer[0];
+   \                     ??SampleApp_Send_PERIDOIC_CMD_1:
+   \   000025   90....       MOV     DPTR,#Data_Buffer
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   90....       MOV     DPTR,#RTD_H
+   \   00002C   F0           MOVX    @DPTR,A
+    302                       RTD_L=Data_Buffer[1];                      
+   \   00002D   90....       MOV     DPTR,#Data_Buffer + 1
+   \   000030   E0           MOVX    A,@DPTR
+   \   000031   90....       MOV     DPTR,#RTD_L
+   \   000034   F0           MOVX    @DPTR,A
+    303                       AD_Value=(((RTD_H<<8)|RTD_L)&0xFFFE)>>1;//获得MAX31865对PT100电阻的对应电压值           
+   \   000035   90....       MOV     DPTR,#RTD_H
+   \   000038   E0           MOVX    A,@DPTR
+   \   000039   F9           MOV     R1,A
+   \   00003A   90....       MOV     DPTR,#RTD_L
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   F8           MOV     R0,A
+   \   00003F   E9           MOV     A,R1
+   \   000040   C3           CLR     C
+   \   000041   13           RRC     A
+   \   000042   F9           MOV     R1,A
+   \   000043   E8           MOV     A,R0
+   \   000044   13           RRC     A
+   \   000045   F8           MOV     R0,A
+   \   000046   88..         MOV     ?V0 + 0,R0
+   \   000048   89..         MOV     ?V0 + 1,R1
+   \   00004A   E4           CLR     A
+   \   00004B   F5..         MOV     ?V0 + 2,A
+   \   00004D   F5..         MOV     ?V0 + 3,A
+   \   00004F   78..         MOV     R0,#?V0 + 0
+   \   000051   12....       LCALL   ?UL_TO_FLT
+   \   000054   90....       MOV     DPTR,#AD_Value
+   \   000057   78..         MOV     R0,#?V0 + 0
+   \   000059   12....       LCALL   ?L_MOV_TO_X
+    304          	     RTD_Resistor=((AD_Value*4000.0000)/32768.00);
+   \   00005C   90....       MOV     DPTR,#AD_Value
+   \   00005F   78..         MOV     R0,#?V0 + 0
+   \   000061   12....       LCALL   ?L_MOV_X
+   \   000064   90....       MOV     DPTR,#__Constant_457a0000
+   \   000067   78..         MOV     R0,#?V0 + 4
+   \   000069   12....       LCALL   ?L_MOV_X
+   \   00006C   78..         MOV     R0,#?V0 + 0
+   \   00006E   79..         MOV     R1,#?V0 + 4
+   \   000070   12....       LCALL   ?FLT_MUL
+   \   000073   90....       MOV     DPTR,#__Constant_38000000
+   \   000076   78..         MOV     R0,#?V0 + 4
+   \   000078   12....       LCALL   ?L_MOV_X
+   \   00007B   78..         MOV     R0,#?V0 + 0
+   \   00007D   79..         MOV     R1,#?V0 + 4
+   \   00007F   12....       LCALL   ?FLT_MUL
+   \   000082   90....       MOV     DPTR,#RTD_Resistor
+   \   000085   78..         MOV     R0,#?V0 + 0
+   \   000087   12....       LCALL   ?L_MOV_TO_X
+    305                       RTD_Temperature=(AD_Value/31.73)-256;//根据公式，线性计算求得温度
+   \   00008A   90....       MOV     DPTR,#AD_Value
+   \   00008D   78..         MOV     R0,#?V0 + 0
+   \   00008F   12....       LCALL   ?L_MOV_X
+   \   000092   90....       MOV     DPTR,#__Constant_41fdd70a
+   \   000095   78..         MOV     R0,#?V0 + 4
+   \   000097   12....       LCALL   ?L_MOV_X
+   \   00009A   78..         MOV     R0,#?V0 + 0
+   \   00009C   79..         MOV     R1,#?V0 + 4
+   \   00009E   12....       LCALL   ?FLT_DIV
+   \   0000A1   90....       MOV     DPTR,#__Constant_c3800000
+   \   0000A4   78..         MOV     R0,#?V0 + 4
+   \   0000A6   12....       LCALL   ?L_MOV_X
+   \   0000A9   78..         MOV     R0,#?V0 + 0
+   \   0000AB   79..         MOV     R1,#?V0 + 4
+   \   0000AD   12....       LCALL   ?FLT_ADD
+   \   0000B0   90....       MOV     DPTR,#RTD_Temperature
+   \   0000B3   78..         MOV     R0,#?V0 + 0
+   \   0000B5   12....       LCALL   ?L_MOV_TO_X
+    306                       if (RTD_Temperature<=0) RTD_Temperature=0;
+   \   0000B8   90....       MOV     DPTR,#RTD_Temperature
+   \   0000BB   78..         MOV     R0,#?V0 + 0
+   \   0000BD   12....       LCALL   ?L_MOV_X
+   \   0000C0   90....       MOV     DPTR,#__Constant_1
+   \   0000C3   78..         MOV     R0,#?V0 + 4
+   \   0000C5   12....       LCALL   ?L_MOV_X
+   \   0000C8   78..         MOV     R0,#?V0 + 0
+   \   0000CA   79..         MOV     R1,#?V0 + 4
+   \   0000CC   12....       LCALL   ?FLT_LT
+   \   0000CF   5005         JNC     ??SampleApp_Send_PERIDOIC_CMD_3
+   \   0000D1   90....       MOV     DPTR,#__Constant_0
+   \   0000D4   801C         SJMP    ??SampleApp_Send_PERIDOIC_CMD_4
+    307                       if (RTD_Temperature>=100) RTD_Temperature=100;
+   \                     ??SampleApp_Send_PERIDOIC_CMD_3:
+   \   0000D6   90....       MOV     DPTR,#RTD_Temperature
+   \   0000D9   78..         MOV     R0,#?V0 + 0
+   \   0000DB   12....       LCALL   ?L_MOV_X
+   \   0000DE   90....       MOV     DPTR,#__Constant_42c80000
+   \   0000E1   78..         MOV     R0,#?V0 + 4
+   \   0000E3   12....       LCALL   ?L_MOV_X
+   \   0000E6   78..         MOV     R0,#?V0 + 0
+   \   0000E8   79..         MOV     R1,#?V0 + 4
+   \   0000EA   12....       LCALL   ?FLT_GE
+   \   0000ED   500C         JNC     ??SampleApp_Send_PERIDOIC_CMD_5
+   \   0000EF   90....       MOV     DPTR,#__Constant_42c80000
+   \                     ??SampleApp_Send_PERIDOIC_CMD_4:
+   \   0000F2   12....       LCALL   ?XLOAD_R2345
+   \   0000F5   90....       MOV     DPTR,#RTD_Temperature
+   \   0000F8   12....       LCALL   ?XSTORE_R2345
+    308                       str_t[0] = '2';//终端一编号
+   \                     ??SampleApp_Send_PERIDOIC_CMD_5:
+   \   0000FB   90....       MOV     DPTR,#str_t
+   \   0000FE   7432         MOV     A,#0x32
+   \   000100   F0           MOVX    @DPTR,A
+    309                       str_t[1] = ':';           
+   \   000101   A3           INC     DPTR
+   \   000102   743A         MOV     A,#0x3a
+   \   000104   F0           MOVX    @DPTR,A
+    310                       sprintf(&str_t[2], "%3.2f", RTD_Temperature);//将温度浮点数转化为对应字符串
+                                      ^
+Warning[Pe167]: argument of type "unsigned char *" is incompatible with
+          parameter of type "char *"
+   \   000105                ; Setup parameters for call to function sprintf
+   \   000105   90....       MOV     DPTR,#RTD_Temperature
+   \   000108   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   00010B   7C..         MOV     R4,#`?<Constant "%3.2f">` & 0xff
+   \   00010D   7D..         MOV     R5,#(`?<Constant "%3.2f">` >> 8) & 0xff
+   \   00010F   7A..         MOV     R2,#(str_t + 2) & 0xff
+   \   000111   7B..         MOV     R3,#((str_t + 2) >> 8) & 0xff
+   \   000113   12....       LCALL   ??sprintf?relay
+   \   000116   7404         MOV     A,#0x4
+   \   000118   12....       LCALL   ?DEALLOC_XSTACK8
+    311                       AF_DataRequest( &SampleApp_P2P_DstAddr, &SampleApp_epDesc,//无线发送信息到协调器
+    312                                           ENDDEVIC1_MSG, 
+    313                                           10,            //发送数据长度,根据用户数据长度改变
+    314                                           str_t,
+    315                                           &SampleApp_TransID,
+    316                                           AF_DISCV_ROUTE,AF_DEFAULT_RADIUS);
+   \   00011B                ; Setup parameters for call to function AF_DataRequest
+   \   00011B   75..1E       MOV     ?V0 + 0,#0x1e
+   \   00011E   78..         MOV     R0,#?V0 + 0
+   \   000120   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000123   75....       MOV     ?V0 + 0,#SampleApp_TransID & 0xff
+   \   000126   75....       MOV     ?V0 + 1,#(SampleApp_TransID >> 8) & 0xff
+   \   000129   78..         MOV     R0,#?V0 + 0
+   \   00012B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00012E   75....       MOV     ?V0 + 0,#str_t & 0xff
+   \   000131   75....       MOV     ?V0 + 1,#(str_t >> 8) & 0xff
+   \   000134   78..         MOV     R0,#?V0 + 0
+   \   000136   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000139   75..0A       MOV     ?V0 + 0,#0xa
+   \   00013C   75..00       MOV     ?V0 + 1,#0x0
+   \   00013F   78..         MOV     R0,#?V0 + 0
+   \   000141   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000144   75..01       MOV     ?V0 + 0,#0x1
+   \   000147   78..         MOV     R0,#?V0 + 0
+   \   000149   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00014C   7920         MOV     R1,#0x20
+   \   00014E   7C..         MOV     R4,#SampleApp_epDesc & 0xff
+   \   000150   7D..         MOV     R5,#(SampleApp_epDesc >> 8) & 0xff
+   \   000152   7A..         MOV     R2,#SampleApp_P2P_DstAddr & 0xff
+   \   000154   7B..         MOV     R3,#(SampleApp_P2P_DstAddr >> 8) & 0xff
+   \   000156   12....       LCALL   ??AF_DataRequest?relay
+   \   000159   7409         MOV     A,#0x9
+   \   00015B   12....       LCALL   ?DEALLOC_XSTACK8
+    317           
+    318              }
+    319             return 0;  
+   \                     ??SampleApp_Send_PERIDOIC_CMD_0:
+   \   00015E   7900         MOV     R1,#0x0
+   \                     ??SampleApp_Send_PERIDOIC_CMD_2:
+   \   000160   7F08         MOV     R7,#0x8
+   \   000162   02....       LJMP    ?BANKED_LEAVE_XDATA
+    320          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    321          void spi_master(void)//SPI驱动，初始化终端SPI为主机
+   \                     spi_master:
+    322          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    323            
+    324            // SPI Master Mode
+    325          	PERCFG|= 0x02;        // map USART1 to its alternative 2 location. P1_4: SSN, P1_5: SCK, P1_6: MOSI, P1_7: MISO
+   \   000000   43F102       ORL     0xf1,#0x2
+    326          	P1SEL |= 0xE0;        // P1_5, P1_6, and P1_7 are peripherals
+   \   000003   43F4E0       ORL     0xf4,#0xe0
+    327          	P1SEL &= ~0x10;        // P1_4 is GPIO (SSN)
+   \   000006   53F4EF       ANL     0xf4,#0xef
+    328          	P1DIR |= 0x10;        // SSN is set as output
+   \   000009   43FE10       ORL     0xfe,#0x10
+    329          	
+    330          	U1BAUD = 0xD8; U1GCR |= 0x0B;        // Set baud rate to 115200 
+   \   00000C   75FAD8       MOV     0xfa,#-0x28
+   \   00000F   43FC0B       ORL     0xfc,#0xb
+    331                  //U1BAUD = 0x00; U1GCR |= 0x11;        // Set baud rate to max (system clock frequency / 8)(2.25m)  20 10
+    332          	U1CSR &= ~0xA0;        // SPI Master Mode
+   \   000012   53F85F       ANL     0xf8,#0x5f
+    333          	U1GCR &= ~0x80; U1GCR |= 0x40; U1GCR |= 0x20;        // MSB CPOL=0 CPHA=1 高位在前
+   \   000015   53FC7F       ANL     0xfc,#0x7f
+   \   000018   43FC40       ORL     0xfc,#0x40
+   \   00001B   43FC20       ORL     0xfc,#0x20
+    334                  TCON &= ~0x80; 
+   \   00001E   C28F         CLR     0x88.7
+    335                  URX1IE = 1; 
+   \   000020   D2AB         SETB    0xa8.3
+    336                //  EA = 1;
+    337          }    
+   \   000022   02....       LJMP    ?BRET
+   \   000025                REQUIRE PERCFG
+   \   000025                REQUIRE P1SEL
+   \   000025                REQUIRE P1DIR
+   \   000025                REQUIRE U1BAUD
+   \   000025                REQUIRE U1GCR
+   \   000025                REQUIRE _A_U1CSR
+   \   000025                REQUIRE _A_TCON
+   \   000025                REQUIRE _A_IEN0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    338          void SPI_SendData(uint8 data)//SPI驱动  写函数
+   \                     SPI_SendData:
+    339          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    340           U1DBUF = data; 
+   \   000000   89F9         MOV     0xf9,R1
+    341          }
+   \   000002   02....       LJMP    ?BRET
+   \   000005                REQUIRE U1DBUF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    342          uint8 SPI_ReceiveData(void)//SPI驱动  读函数
+   \                     SPI_ReceiveData:
+    343          {  
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    344           return ((uint8)U1DBUF);
+   \   000000   A9F9         MOV     R1,0xf9
+   \   000002   02....       LJMP    ?BRET
+   \   000005                REQUIRE U1DBUF
+    345          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPI_Operation?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPI_Operation
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Inital_MAX31865?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Inital_MAX31865
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delayMS?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delayMS
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SampleApp_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SampleApp_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SampleApp_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SampleApp_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SampleApp_Send_PERIDOIC_CMD?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SampleApp_Send_PERIDOIC_CMD
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??spi_master?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    spi_master
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPI_SendData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPI_SendData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPI_ReceiveData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPI_ReceiveData
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "%3.2f">`:
+   \   000000   25332E32     DB "%3.2f"
+   \            6600    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_fffff:
+   \   000000   FFFF0F00     DD 1048575
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ffffffff:
+   \   000000   FFFFFFFF     DD 4294967295
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_457a0000:
+   \   000000   00007A45     DD 457A0000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_38000000:
+   \   000000   00000038     DD 38000000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_41fdd70a:
+   \   000000   0AD7FD41     DD 41FDD70AH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c3800000:
+   \   000000   000080C3     DD 0C3800000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_1:
+   \   000000   01000000     DD 1H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_42c80000:
+   \   000000   0000C842     DD 42C80000H
+
+   Maximum stack usage in bytes:
+
+     Function                       ISTACK PSTACK XSTACK
+     --------                       ------ ------ ------
+     Inital_MAX31865                    2      0      9
+       -> SPI_Operation                 4      0      0
+       -> SPI_Operation                 4      0      0
+     SPI_Operation                      1      0     34
+     SPI_ReceiveData                    0      0      0
+     SPI_SendData                       0      0      0
+     SampleApp_Init                     0      0      9
+       -> spi_master                    0      0     18
+       -> SPI_Operation                 0      0     18
+       -> Inital_MAX31865               0      0     18
+       -> SPI_Operation                 0      0     18
+       -> afRegister                    0      0     18
+       -> RegisterForKeys               0      0     18
+     SampleApp_ProcessEvent             0      0     12
+       -> osal_msg_receive              0      0     24
+       -> osal_start_timerEx            0      0     24
+       -> osal_msg_deallocate           0      0     24
+       -> osal_msg_receive              0      0     24
+       -> SampleApp_Send_PERIDOIC_CMD
+                                        0      0     24
+       -> osal_start_timerEx            0      0     24
+     SampleApp_Send_PERIDOIC_CMD        0      0     37
+       -> SPI_Operation                 0      0     32
+       -> sprintf                       0      0     40
+       -> AF_DataRequest                0      0     50
+     delayMS                            0      0      9
+       -> Onboard_wait                  0      0     18
+     spi_master                         0      0      9
+
+
+   Segment part sizes:
+
+     Function/Label                      Bytes
+     --------------                      -----
+     _A_TCON                                1
+     _A_P1                                  1
+     _A_IEN0                                1
+     PERCFG                                 1
+     P1SEL                                  1
+     _A_U1CSR                               1
+     U1DBUF                                 1
+     U1BAUD                                 1
+     U1GCR                                  1
+     P1DIR                                  1
+     TIMEOUT                                4
+     Data_Buffer                           10
+     MAX31865_Config                        1
+     MAX31855_Fault_Status                  1
+     Operation_Fault                        1
+     AD_Value                               4
+     RTD_H                                  1
+     RTD_L                                  1
+     RTD_Resistor                           4
+     RTD_Temperature                        4
+     Corrected_Temperature                  4
+     str_t                                 12
+     SPI_Operation                        254
+     ?Subroutine1                          15
+     Inital_MAX31865                       68
+     ?Subroutine2                           7
+     delayMS                               29
+     ?Subroutine0                           5
+     SampleApp_ClusterList                  2
+     SampleApp_SimpleDesc                  12
+     SampleApp_epDesc                       6
+     SampleApp_TaskID                       1
+     SampleApp_NwkState                     1
+     SampleApp_TransID                      1
+     SampleApp_P2P_DstAddr                 12
+     ok                                     1
+     SampleApp_Init                       117
+     SampleApp_ProcessEvent               118
+     SampleApp_Send_PERIDOIC_CMD          357
+     spi_master                            37
+     SPI_SendData                           5
+     SPI_ReceiveData                        5
+     ??SPI_Operation?relay                  6
+     ??Inital_MAX31865?relay                6
+     ??delayMS?relay                        6
+     ??SampleApp_Init?relay                 6
+     ??SampleApp_ProcessEvent?relay         6
+     ??SampleApp_Send_PERIDOIC_CMD?relay    6
+     ??spi_master?relay                     6
+     ??SPI_SendData?relay                   6
+     ??SPI_ReceiveData?relay                6
+     ?<Constant "%3.2f">                    6
+     __Constant_fffff                       4
+     __Constant_ffffffff                    4
+     __Constant_457a0000                    4
+     __Constant_38000000                    4
+     __Constant_41fdd70a                    4
+     __Constant_c3800000                    4
+     __Constant_1                           4
+     __Constant_0                           4
+     __Constant_42c80000                    4
+
+ 
+ 1 017 bytes in segment BANKED_CODE
+    54 bytes in segment BANK_RELAYS
+    10 bytes in segment SFR_AN
+    56 bytes in segment XDATA_ROM_C
+    69 bytes in segment XDATA_Z
+ 
+ 1 071 bytes of CODE  memory
+    20 bytes of CONST memory (+ 36 bytes shared)
+     0 bytes of DATA  memory (+ 10 bytes shared)
+    69 bytes of XDATA memory
+
+Errors: none
+Warnings: 3
